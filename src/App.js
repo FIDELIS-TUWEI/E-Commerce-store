@@ -1,9 +1,10 @@
 import firebase from './Firebase'
-import { getFirestore } from 'firebase/firestore';
+import { addDoc, getFirestore } from 'firebase/firestore';
 import  { collection, getDocs } from 'firebase/firestore'
 import { useState, useEffect } from 'react';
 import Nav from './components/Nav';
 import './App.css'
+import Form from './components/Form';
 
 
 const App = () => {
@@ -31,6 +32,12 @@ const App = () => {
         console.log(err.message);
       });
   }, []);
+
+  // form function
+  const addProduct = e => {
+    e.preventDefault()
+    console.log("check")
+  }
   
 
   return ( 
@@ -50,10 +57,11 @@ const App = () => {
               <h3>Ksh. {item.price}/=</h3>
               <a href={item.url} target="_blank">Buy Item</a>
             </div>
-            
           </div>
         )
       })}
+
+      <Form add={addProduct}/>
     </div>
    );
 }

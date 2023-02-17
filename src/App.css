@@ -12,6 +12,7 @@ img {
 
 .App {
     background-color: lightgreen;
+    min-height: 100vh;
 }
 
 .product__container {
@@ -22,4 +23,12 @@ img {
 
 .image__container {
     border: 1px solid blue;
+}
+
+form {
+    margin: 3rem auto;
+}
+
+button {
+    margin-left: 10px;
 }
