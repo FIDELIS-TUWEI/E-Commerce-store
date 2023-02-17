@@ -1,4 +1,4 @@
-import Firebase from '../firebase'
+/* import Firebase from '../firebase'
 import './home.css'
 
 const Home = () => {
@@ -33,4 +33,4 @@ const Home = () => {
      );
 }
  
-export default Home;
+export default Home; */

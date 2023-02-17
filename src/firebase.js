@@ -1,11 +1,10 @@
 import { initializeApp } from "firebase/app";
-import {
+/* import {
     collection,
     getDocs,
     getFirestore 
-} from 'firebase/firestore'
+} from 'firebase/firestore' */
 
-const Firebase = () => {
     const firebaseConfig = {
         apiKey: "AIzaSyCsLoBiTYPq-305XSzfN0DbZpfoC4bHfCc",
         authDomain: "fleekyffect.firebaseapp.com",
@@ -17,9 +16,9 @@ const Firebase = () => {
       };
       
       // Initialize Firebase
-      initializeApp(firebaseConfig);
+      const app = initializeApp(firebaseConfig);
       
-      // init services
+      /* // init services
       const db = getFirestore()
       
       
@@ -38,16 +37,4 @@ const Firebase = () => {
           })
           .catch(err => {
             console.log(err.message)
-          })
-
-
-
-    return (
-        <div></div>
-    )
-}
-
-
-
-
-export default Firebase;
+          }); */
