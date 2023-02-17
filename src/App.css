@@ -1,0 +1,25 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+.App {
+    background-color: lightgreen;
+}
+
+.product__container {
+    border: 3px solid yellow;
+    display: flex;
+    flex-direction: row;
+}
+
+.image__container {
+    border: 1px solid blue;
+}
