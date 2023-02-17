@@ -13,30 +13,35 @@ const App = () => {
 
   // useState
   const [data, setData] = useState([]);
-  const [loader, setLoader] = useState(true);
 
-  // function to get data
-  getDocs(colRef)
+
+  // useEffect
+  useEffect(() => {
+    getDocs(colRef)
       .then((snapshot) => {
-          let jumia_products = []
-          snapshot.docs.forEach((doc) => {
-            jumia_products.push({...doc.data(), id: doc.id})
-          })
-          console.log(jumia_products)
-          setData(jumia_products)
-          //setLoader(false)
+        let products = []
+        snapshot.docs.forEach((doc) => {
+          products.push({...doc.data(), id: doc.id})
+        })
+        setData(products);
+        console.log(products)
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err.message)
-      });
+      })
+  }, []);
 
-
+      
   return (
     <div className="App">
       {data.map((item) => (
         <div key={item.id}>
-          <h1>{item.category}</h1>
-          <img src={item.image_url} />
+          <h3>{item.name}</h3>
+          <p>{item.category}</p>
+          <img src={item.image_url} alt={item.name} />
+          <p>Brand: {item.data_brand}</p>
+          <h4>Ksh. {item.price}/=</h4>
+          <a href={item.url} target="_blank">Purchase</a>
         </div>
       ))}
     </div>
