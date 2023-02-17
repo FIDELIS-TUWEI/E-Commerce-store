@@ -32,7 +32,7 @@ const Firebase = () => {
           .then((snapshot) => {
               let jumia_products = []
               snapshot.docs.forEach((doc) => {
-                jumia_products.push({...doc.data, id: doc.id})
+                jumia_products.push({...doc.data(), id: doc.id})
               })
               console.log(jumia_products)
           })
