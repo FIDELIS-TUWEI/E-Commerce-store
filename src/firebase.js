@@ -1,5 +1,9 @@
 import { initializeApp } from "firebase/app";
-
+import {
+    collection,
+    getDocs,
+    getFirestore 
+} from 'firebase/firestore'
 
 const firebaseConfig = {
   apiKey: "AIzaSyCsLoBiTYPq-305XSzfN0DbZpfoC4bHfCc",
@@ -12,4 +16,18 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+initializeApp(firebaseConfig);
+
+// init services
+const db = getFirestore()
+
+
+//collection ref
+const colRef = collection(db, "jumia_products")
+
+
+//get collection data
+getDocs(colRef)
+    .then((snapshot) => {
+        console.log(snapshot.docs)
+    })
