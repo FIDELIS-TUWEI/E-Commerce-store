@@ -1,9 +1,10 @@
 import Firebase from '../firebase'
+import './home.css'
 
 const Home = () => {
     return ( 
         <>
-            <div>
+            <div className='product__data'>
                 <h2>Fleekyffect Firestore Database</h2>
 
                 <form className="add">
