@@ -6,6 +6,10 @@
     text-decoration: none;
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
+
 img {
     max-width: 100%;
 }

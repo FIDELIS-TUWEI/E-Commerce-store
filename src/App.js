@@ -4,7 +4,6 @@ import  { collection, doc } from 'firebase/firestore'
 import { useState, useEffect } from 'react';
 import Nav from './components/Nav';
 import './App.css'
-import { async } from '@firebase/util';
 
 
 const App = () => {
