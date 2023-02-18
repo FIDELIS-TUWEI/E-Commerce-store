@@ -1,13 +1,17 @@
 import './nav.css'
+import {BiHome} from 'react-icons/bi'
+import {BiLogIn} from 'react-icons/bi'
+import {AiOutlineSetting} from 'react-icons/ai'
 
 const Nav = () => {
     return ( 
         <nav className="navbar">
-            <h3>Fleekyffect-DB</h3>
+            <h4>Fleekyffect Firestore</h4>
 
-            <ul className="navmenu">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Store</a></li>
+            <ul>
+                <li><a href="#"><BiHome /></a></li>
+                <li><a href="#"><BiLogIn /></a></li>
+                <li><a href="#"><AiOutlineSetting /></a></li>
             </ul>
         </nav>
      );
