@@ -93,7 +93,7 @@ const App = () => {
               <h2>Product name: {item.name}</h2>
               <p>Category: {item.category}</p>
               <div className='image__container'>
-                <img src={item.image_url} />
+                <img src={item.image_url} alt="" />
               </div>
               <h3>Ksh. {item.price}/=</h3>
               <a href={item.url} target="_blank">Buy Item</a>
