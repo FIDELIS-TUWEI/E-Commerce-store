@@ -50,6 +50,14 @@ const App = () => {
     updateDoc(docRef, newPrice)
   }
 
+  // Delete Item
+  const deleteItem = (id) => {
+    // document collection
+    const docRef = doc(db, "jumia_products", id)
+    // delete item according to id
+    deleteDoc(docRef)
+  }
+
   return ( 
     <div className="App">
       <Nav />
@@ -95,6 +103,12 @@ const App = () => {
                 onClick={() => {updateItem(item.id, item.price)}}
               >
                 Update Price
+              </button>
+
+              <button
+                onClick={() => {deleteItem(item.id)}}
+              >
+                Delete Item
               </button>
             </div>
           </div>
