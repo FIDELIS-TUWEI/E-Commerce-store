@@ -1,6 +1,6 @@
 import firebase from './Firebase'
-import { addDoc, getFirestore, onSnapshot } from 'firebase/firestore';
-import  { collection, getDocs } from 'firebase/firestore'
+import { addDoc, deleteDoc, getFirestore, onSnapshot, updateDoc } from 'firebase/firestore';
+import  { collection, doc } from 'firebase/firestore'
 import { useState, useEffect } from 'react';
 import Nav from './components/Nav';
 import './App.css'
@@ -34,10 +34,19 @@ const App = () => {
   
 
   // Add New Product function
-  const addProduct = async () => {
-    await addDoc(colRef, {name: newProduct, category: newCategory})
+  const addProduct = () => {
+    addDoc(colRef, {name: newProduct, category: newCategory})
   }
-  
+
+  // Update Item
+  const updateItem = (id, price) => {
+    // document collection
+    const docRef = doc(db, "jumia_products", id)
+    // Increment price
+    const newPrice = {price: price + 1}
+    //update price
+    updateDoc(docRef, newPrice)
+  }
 
   return ( 
     <div className="App">
@@ -72,6 +81,12 @@ const App = () => {
               </div>
               <h3>Ksh. {item.price}/=</h3>
               <a href={item.url} target="_blank">Buy Item</a>
+
+              <button
+                onClick={() => {updateItem(item.id, item.price)}}
+              >
+                Update Price
+              </button>
             </div>
           </div>
         )
