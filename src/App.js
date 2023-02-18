@@ -12,6 +12,7 @@ const App = () => {
   const [data, setData] = useState([])
   const [newProduct, setNewProduct] = useState("")
   const [newCategory, setNewCategory] = useState("")
+  const [newPrice, setNewPrice] = useState(0);
 
   // Init services
   const db = getFirestore()
@@ -34,8 +35,9 @@ const App = () => {
   
 
   // Add New Product function
-  const addProduct = () => {
-    addDoc(colRef, {name: newProduct, category: newCategory})
+  const addProduct = (e) => {
+    e.preventDefault()
+    addDoc(colRef, {name: newProduct, category: newCategory, price: Number(newPrice) })
   }
 
   // Update Item
@@ -64,6 +66,13 @@ const App = () => {
           type='text'
           placeholder='Category'
           onChange={(e) => setNewCategory(e.target.value)}
+        />
+
+        <label>Price:</label>
+        <input
+          type='number'
+          placeholder='Price'
+          onChange={(e) => setNewPrice(e.target.value)}
         />
 
         <button type='submit'>Add Item</button>
