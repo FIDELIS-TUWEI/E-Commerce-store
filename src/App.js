@@ -60,30 +60,32 @@ const App = () => {
   return ( 
     <div className="App">
       <Nav />
+      <div className='form__container'>
+          <form onSubmit={addProduct} className="form">
+            <label>Product Name:</label>
+            <input 
+              type="text"
+              placeholder='New Product'
+              onChange={(e) => setNewProduct(e.target.value)}
+            />
+            <label>Category:</label>
+            <input
+              type='text'
+              placeholder='Category'
+              onChange={(e) => setNewCategory(e.target.value)}
+            />
 
-      <form onSubmit={addProduct}>
-        <label>Product Name:</label>
-        <input 
-          type="text"
-          placeholder='New Product'
-          onChange={(e) => setNewProduct(e.target.value)}
-        />
-        <label>Category:</label>
-        <input
-          type='text'
-          placeholder='Category'
-          onChange={(e) => setNewCategory(e.target.value)}
-        />
+            <label>Price:</label>
+            <input
+              type='number'
+              placeholder='Price'
+              onChange={(e) => setNewPrice(e.target.value)}
+            />
 
-        <label>Price:</label>
-        <input
-          type='number'
-          placeholder='Price'
-          onChange={(e) => setNewPrice(e.target.value)}
-        />
-
-        <button type='submit'>Add Item</button>
-      </form>
+            <button type='submit' className='btn'>Add Item</button>
+          </form>
+      </div>
+      
 
       {data.map((item) => {
         return (

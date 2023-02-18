@@ -43,6 +43,31 @@ img {
     width: 100%;
 }
 
+/* ========== FORM STYLES ========== */
+.form__container {
+    display: flex;
+    justify-content: flex-start;
+    width: 75%;
+    margin: 1rem auto;
+}
+
+.form {
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.8rem 0.5rem;
+}
+
+input {
+    padding: 0.8rem;
+    resize: none;
+    outline: none;
+    box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+    border: none;
+}
+
+/* ========== GENERAL STYLES ========== */
 small {
     font-style: italic;
     font-weight: 500;
@@ -78,7 +103,8 @@ p {
 .item__description {
     display: flex;
     flex-direction: column;
-    width: 600px;
+    margin: 1.5rem;
+    width: 350px;
     padding: 0.5rem 0.5rem;
     height: max-content;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
