@@ -1,4 +1,29 @@
 .navbar {
     border-bottom: 1px solid red;
     min-height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+}
+
+li {
+    list-style: none;
+}
+
+.navmenu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+a {
+    font-size: 1.5rem;
+    color: orange;
+}
+
+h4 {
+    color: #4a4a6e;
+    letter-spacing: 1px;
 }

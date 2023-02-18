@@ -8,7 +8,7 @@ const Nav = () => {
         <nav className="navbar">
             <h4>Fleekyffect Firestore</h4>
 
-            <ul>
+            <ul className='navmenu'>
                 <li><a href="#"><BiHome /></a></li>
                 <li><a href="#"><BiLogIn /></a></li>
                 <li><a href="#"><AiOutlineSetting /></a></li>
