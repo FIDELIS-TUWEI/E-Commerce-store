@@ -1,15 +1,17 @@
 import firebase from './Firebase'
-import { addDoc, getFirestore } from 'firebase/firestore';
+import { addDoc, getFirestore, onSnapshot } from 'firebase/firestore';
 import  { collection, getDocs } from 'firebase/firestore'
 import { useState, useEffect } from 'react';
 import Nav from './components/Nav';
 import './App.css'
-import Form from './components/Form';
+import { async } from '@firebase/util';
 
 
 const App = () => {
   // useState
   const [data, setData] = useState([])
+  const [newProduct, setNewProduct] = useState("")
+  const [newCategory, setNewCategory] = useState("")
 
   // Init services
   const db = getFirestore()
@@ -17,32 +19,46 @@ const App = () => {
   // Collect ref
   const colRef = collection(db, "jumia_products");
 
-  // getDocs collection with useEffect
+  // realtime data collection with useEffect
   useEffect(() => {
-    getDocs(colRef)
-      .then((snapshot) => {
-        let products = []
-        snapshot.docs.forEach((doc) => {
-          products.push({...doc.data(), id: doc.id})
-        })
-        setData(products)
-        console.log(products)
+    onSnapshot(colRef, (snapshot) => {
+      let products = []
+      snapshot.docs.forEach((doc) => {
+        products.push({...doc.data(), id: doc.id})
       })
-      .catch((err) => {
-        console.log(err.message);
-      });
+      setData(products)
+      console.log(products)
+    })
   }, []);
 
-  // form function
-  const addProduct = e => {
-    e.preventDefault()
-    console.log("check")
+  
+
+  // Add New Product function
+  const addProduct = async () => {
+    await addDoc(colRef, {name: newProduct, category: newCategory})
   }
   
 
   return ( 
     <div className="App">
       <Nav />
+
+      <form onSubmit={addProduct}>
+        <label>Product Name:</label>
+        <input 
+          type="text"
+          placeholder='New Product'
+          onChange={(e) => setNewProduct(e.target.value)}
+        />
+        <label>Category:</label>
+        <input
+          type='text'
+          placeholder='Category'
+          onChange={(e) => setNewCategory(e.target.value)}
+        />
+
+        <button type='submit'>Add Item</button>
+      </form>
 
       {data.map((item) => {
         return (
@@ -61,7 +77,6 @@ const App = () => {
         )
       })}
 
-      <Form add={addProduct}/>
     </div>
    );
 }
