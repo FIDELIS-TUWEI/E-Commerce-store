@@ -87,30 +87,41 @@ const App = () => {
 
       {data.map((item) => {
         return (
-          <div key={item.id} className="container">
+          <section key={item.id} className="container">
+            <small>Category: {item.category}</small>
 
             <div className='product__container'>
-              <h2>Product name: {item.name}</h2>
-              <p>Category: {item.category}</p>
               <div className='image__container'>
-                <img src={item.image_url} alt="" />
+                <img src={item.image_url} alt="" className='image' />
               </div>
-              <h3>Ksh. {item.price}/=</h3>
-              <a href={item.url} target="_blank">Buy Item</a>
 
-              <button
-                onClick={() => {updateItem(item.id, item.price)}}
-              >
-                Update Price
-              </button>
+              <div className='item__description'>
+                <h5>Brand: {item.name}</h5>
+            
+                <p className='price'>
+                  Ksh. {item.price}/= 
+                  <span><a href={item.url} target="_blank" className='buy__item'>Buy Item</a></span>
+                </p>
+                
+              
+                <div className='buttons'>
+                  <button
+                    className='btn'
+                    onClick={() => {updateItem(item.id, item.price)}}
+                  >
+                    Update Price
+                  </button>
 
-              <button
-                onClick={() => {deleteItem(item.id)}}
-              >
-                Delete Item
-              </button>
+                  <button
+                    className='btn'
+                    onClick={() => {deleteItem(item.id)}}
+                  >
+                    Delete Item
+                  </button>
+                </div>
+              </div>           
             </div>
-          </div>
+          </section>
         )
       })}
 
