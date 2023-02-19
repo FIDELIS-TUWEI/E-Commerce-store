@@ -1,7 +1,8 @@
-import firebase from './Firebase'
+import firebase from '../Firebase'
 import { addDoc, deleteDoc, getFirestore, onSnapshot, updateDoc } from 'firebase/firestore';
 import  { collection, doc } from 'firebase/firestore'
 import { useState, useEffect } from 'react';
+import Form from './Form'
 
 const Products = () => {
     // useState
