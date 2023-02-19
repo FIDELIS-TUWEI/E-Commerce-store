@@ -11,7 +11,7 @@ const Nav = () => {
             <ul className='navmenu'>
                 <li><a href="#"><BiHome /></a></li>
                 <li><a href="#"><BiLogIn /></a></li>
-                <li><a href="#"><AiOutlineSetting /></a></li>
+                <li><a href="#form"><AiOutlineSetting /></a></li>
             </ul>
         </nav>
      );
