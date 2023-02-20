@@ -13,10 +13,10 @@ const Login = () => {
     const navigate = useNavigate();
 
     // onAuthStateChanged
-    const [uset, setUser] = useState({})
+    const [user, setUser] = useState({})
 
     onAuthStateChanged(auth, (currentUser) => {
-        
+        setUser(currentUser);
     })
 
     // handleLogin
@@ -53,7 +53,7 @@ const Login = () => {
 
                     <button type="submit">Login</button>
                     <h4>User logged in:</h4>
-                    {auth.currentUser.email}
+                    {user.email}
 
                     <button type="submit">Logout</button>
                 </form>
