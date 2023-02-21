@@ -42,8 +42,10 @@ const Login = () => {
         <>
             <div>
                 <h4>User logged in:</h4>
+                <button onClick={handleLogout}>Logout</button>
+
                 {user?.email}
-                <form onSubmit={handleLogin}>
+                <form onSubmit={handleLogin} className="login__form">
                     <label htmlFor="login">Login</label>
                     <input 
                         type="text" 
@@ -61,7 +63,6 @@ const Login = () => {
 
                     <button type="submit">Login</button>
 
-                    <button onClick={handleLogout}>Logout</button>
                 </form>
             </div>
         </>
