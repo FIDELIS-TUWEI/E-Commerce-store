@@ -42,7 +42,7 @@ const Login = () => {
         <>
             <div>
                 <h4>User logged in:</h4>
-                <button onClick={handleLogout}>Logout</button>
+                <button onClick={handleLogout} className="logout-btn">Logout</button>
 
                 {user?.email}
                 <form onSubmit={handleLogin} className="login__form">

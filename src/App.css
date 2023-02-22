@@ -92,6 +92,17 @@ input {
 
 }
 
+.logout-btn {
+    padding: 0.8rem 0.8rem;
+    border-radius: 0.3rem;
+    border: none;
+    background: orange;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 700;
+    margin-top: 0.8rem;
+}
+
 .signup__form {
     display: flex;
     flex-direction: column;
