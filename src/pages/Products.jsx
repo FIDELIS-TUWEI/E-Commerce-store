@@ -63,6 +63,7 @@ const Products = () => {
                 setNewProduct={setNewProduct}
                 setNewCategory={setNewCategory}
                 setNewPrice={setNewPrice}
+                setImage={setImage}
             />
 
             {products.map((item) => {
