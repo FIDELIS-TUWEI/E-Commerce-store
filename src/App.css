@@ -59,7 +59,7 @@ img {
     padding: 0.8rem 0.5rem;
 }
 
-input {
+.form input {
     padding: 0.8rem;
     resize: none;
     outline: none;
