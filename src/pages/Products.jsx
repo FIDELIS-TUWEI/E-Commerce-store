@@ -35,6 +35,8 @@ const Products = () => {
     const addProduct = (e) => {
         e.preventDefault()
         addDoc(colRef, {name: newProduct, category: newCategory, price: Number(newPrice), image_url: image })
+        console.log('submit')
+
     }
 
     // Update Item
