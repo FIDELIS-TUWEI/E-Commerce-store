@@ -70,6 +70,7 @@ const Products = () => {
                 return (
                     <section key={item.id} className="container">
                         <small>Category: {item.category}</small>
+                        <p>Jumia Express{item.jumia_express}</p>
 
                         <div className='product__container'>
                             <div className='image__container'>
