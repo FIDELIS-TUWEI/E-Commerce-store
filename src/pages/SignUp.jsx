@@ -25,7 +25,7 @@ const SignUp = () => {
     return ( 
         <>
             <div className="signup">
-                <form onSubmit={handleRegister}>
+                <form onSubmit={handleRegister} className="signup__form">
                     <label htmlFor="signup">Sign Up</label>
                     <input 
                         type="text"
