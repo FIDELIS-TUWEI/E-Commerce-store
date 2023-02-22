@@ -11,6 +11,7 @@ const Products = () => {
     const [newProduct, setNewProduct] = useState("")
     const [newCategory, setNewCategory] = useState("")
     const [newPrice, setNewPrice] = useState(0);
+    const [image, setImage] = usestate("")
 
     const fetchProducts = async () => {
         const result = await getProducts(lastVisibleProduct)
@@ -33,7 +34,7 @@ const Products = () => {
     // Add New Product function
     const addProduct = (e) => {
         e.preventDefault()
-        addDoc(colRef, {name: newProduct, category: newCategory, price: Number(newPrice) })
+        addDoc(colRef, {name: newProduct, category: newCategory, price: Number(newPrice), image_url: image })
     }
 
     // Update Item
