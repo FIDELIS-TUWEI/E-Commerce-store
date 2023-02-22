@@ -7,6 +7,7 @@ import Home from './pages/Home'
 import Login from './pages/Login'
 import SignUp from './pages/SignUp'
 import Products from './pages/Products';
+import Error from './pages/Error';
 
 // layout
 import RootLayout from './layouts/RootLayout';
@@ -20,6 +21,7 @@ const router = createBrowserRouter(
       <Route path='login' element={<Login />} />
       <Route path='signup' element={<SignUp />} />
       <Route path='products' element={<Products />} />
+      >Route path="*" element={<Error />} />
     </Route>
   )
 )
