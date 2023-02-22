@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getAuth } from 'firebase/auth'
+import { collection, getFirestore, query, getDocs, orderBy, limit, startAfter } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCsLoBiTYPq-305XSzfN0DbZpfoC4bHfCc",
@@ -15,5 +16,26 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
+const db = getFirestore()
 // getAuth
 export const auth = getAuth();
+
+// get products
+export async function getProducts(lastVisible){
+  const productsCollectionRef = collection(db, "jumia_products")
+  let q = null
+  if(lastVisible){
+    q = query(productsCollectionRef, orderBy("timestamp_entered", "desc"), limit(20), startAfter(lastVisible))
+  }else{
+    q = query(productsCollectionRef, orderBy("timestamp_entered", "desc"), limit(20))
+  }
+
+  const snapshot = await getDocs(q)
+  const products = snapshot.docs.map(doc => {
+    return {...doc.data(), id: doc.id}
+  })
+  if(products.length > 0){
+    lastVisible = snapshot.docs[snapshot.docs.length-1]
+  }
+  return {products, lastVisible}
+}

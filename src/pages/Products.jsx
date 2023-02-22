@@ -1,4 +1,4 @@
-import firebase from '../Firebase'
+import firebase, { getProducts } from '../Firebase'
 import { addDoc, deleteDoc, getFirestore, onSnapshot, updateDoc } from 'firebase/firestore';
 import  { collection, doc } from 'firebase/firestore'
 import { useState, useEffect } from 'react';
@@ -6,10 +6,17 @@ import Form from './Form'
 
 const Products = () => {
     // useState
-    const [data, setData] = useState([])
+    const [products, setProducts] = useState([])
+    const [lastVisibleProduct, setLastVisibleProduct] = useState(null)
     const [newProduct, setNewProduct] = useState("")
     const [newCategory, setNewCategory] = useState("")
     const [newPrice, setNewPrice] = useState(0);
+
+    const fetchProducts = async () => {
+        const result = await getProducts(lastVisibleProduct)
+        setProducts([...products, ...result["products"]])
+        setLastVisibleProduct(result["lastVisible"])
+    }
 
     // Init services
     const db = getFirestore()
@@ -19,14 +26,7 @@ const Products = () => {
 
     // realtime data collection with useEffect
     useEffect(() => {
-        onSnapshot(colRef, (snapshot) => {
-        let products = []
-        snapshot.docs.forEach((doc) => {
-            products.push({...doc.data(), id: doc.id})
-        })
-        setData(products)
-        console.log(products)
-        })
+        fetchProducts()
     }, []);
 
     
@@ -56,6 +56,7 @@ const Products = () => {
 
     return ( 
         <>
+            <div>
             <Form
                 addProduct={addProduct}
                 setNewProduct={setNewProduct}
@@ -63,7 +64,7 @@ const Products = () => {
                 setNewPrice={setNewPrice}
             />
 
-            {data.map((item) => {
+            {products.map((item) => {
                 return (
                     <section key={item.id} className="container">
                         <small>Category: {item.category}</small>
@@ -102,6 +103,8 @@ const Products = () => {
                     </section>
                 )
             })}
+            <button onClick={fetchProducts}>Load More</button>
+            </div>
         </>
     );
 }
