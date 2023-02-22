@@ -26,7 +26,7 @@ const Form = ({addProduct, setNewProduct, setNewCategory, setNewPrice, setImage}
                     <label>Image Url</label>
                     <input
                     type="text"
-                    placeholder="Enter image URL
+                    placeholder="Enter image URL"
                     onChange={(e) => setImage(e.target.value)}
                     />
 

@@ -11,7 +11,7 @@ const Products = () => {
     const [newProduct, setNewProduct] = useState("")
     const [newCategory, setNewCategory] = useState("")
     const [newPrice, setNewPrice] = useState(0);
-    const [image, setImage] = usestate("")
+    const [image, setImage] = useState("")
 
     const fetchProducts = async () => {
         const result = await getProducts(lastVisibleProduct)
@@ -70,7 +70,7 @@ const Products = () => {
                 return (
                     <section key={item.id} className="container">
                         <small>Category: {item.category}</small>
-                        <p>Jumia Express{item.jumia_express}</p>
+                        {item.jumia_express ? <p>Jumia Express</p> : ""}
 
                         <div className='product__container'>
                             <div className='image__container'>
