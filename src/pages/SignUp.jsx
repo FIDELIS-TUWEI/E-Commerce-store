@@ -2,7 +2,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 import { auth } from "../Firebase";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from '../context/AuthContext'
+import { UserAuth } from '../context/AuthContext'
 
 const SignUp = () => {
     //usestate
@@ -10,7 +10,7 @@ const SignUp = () => {
     const [password, setPassword] = useState("")
     const [error, setError] = useState("")
     
-    const {createUser} = useAuth()
+    const {createUser} = UserAuth()
 
     // navigate home after sign up
     const navigate = useNavigate()
@@ -21,14 +21,14 @@ const SignUp = () => {
         setError("")
         
         try {
-            await createUserWithEmailAndPassword(email, password);
-            console.log(user)
+            await createUserWithEmailAndPassword(auth, email, password);
             navigate("/")
         } catch(error) {
             setError(error.message)
             console.log(error.message)
         }
     }
+
     return ( 
         <>
             <div className="signup">

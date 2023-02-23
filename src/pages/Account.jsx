@@ -1,22 +1,15 @@
-import { userAuth } from '../context/AuthContext
+import { UserAuth } from '../context/AuthContext'
 import { useNavigate } from 'react-router-dom'
 
 const Account = () => {
   // destructure user from userAuth
-  const {user, logout} = userAuth();
+  const {user, logout} = UserAuth();
   
   // useNavigate after logout
   const navigate = useNavigate();
   
   // handlelogout
   const handleLogout = async () => {
-    try {
-      await logout ();
-      navigate("/");
-      window.alert("Succesfully logged out");
-    } catch (error) => {
-      console.log(error.message);
-    }
   }
   
   return (
@@ -29,3 +22,12 @@ const Account = () => {
 }
 
 export default Account;
+
+
+/* try {
+  await logout ();
+  navigate("/");
+  window.alert("Succesfully logged out");
+} catch(error) => {
+  console.log(error.message);
+} */

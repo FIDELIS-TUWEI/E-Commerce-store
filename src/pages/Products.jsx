@@ -59,7 +59,7 @@ const Products = () => {
 
     return ( 
         <>
-            <div>
+            <div className='container'>
             <Form
                 addProduct={addProduct}
                 setNewProduct={setNewProduct}
@@ -68,13 +68,18 @@ const Products = () => {
                 setImage={setImage}
             />
 
+            <div id="catalog">
             {products.map((item) => {
                 return (
+<<<<<<< HEAD
                     <section key={item.id} className="container">
                         <small>Category: {item.category}</small>
                         {item.jumia_express ? <i>Jumia Express</i> : null}
 
                         <div className='product__container'>
+=======
+                    <section key={item.id} className="prd">
+>>>>>>> remotes/origin/enhancements
                             <div className='image__container'>
                                 <img src={item.image_url} alt="" className='image' />
                             </div>
@@ -104,10 +109,10 @@ const Products = () => {
                                     </button>
                                 </div>
                             </div>           
-                        </div>
                     </section>
                 )
             })}
+            </div>
             <button onClick={fetchProducts}>Load More</button>
             </div>
         </>

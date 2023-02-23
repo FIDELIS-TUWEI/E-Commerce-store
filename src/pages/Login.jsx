@@ -3,15 +3,15 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../Firebase";
-import { userAuth } from '../context/AuthContext'
+import { UserAuth } from '../context/AuthContext'
 
 const Login = () => {
 
     // useState
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-    const [error, setError = useState("")
-    const {login} = userAuth()
+    const [error, setError] = useState("")
+    const {login} = UserAuth()
 
     // navigate to products after login
     const navigate = useNavigate();

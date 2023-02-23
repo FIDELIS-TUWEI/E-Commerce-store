@@ -9,8 +9,7 @@ import SignUp from './pages/SignUp'
 import Products from './pages/Products'
 import Account from './pages/Account'
 import Error from './pages/Error'
-import { AuthContextProvider } from './context/AuthContext'
-import ProtectedRoute from './pages/ProtectedRoute
+import ProtectedRoute from './pages/ProtectedRoute'
 
 // layout
 import RootLayout from './layouts/RootLayout';
@@ -19,7 +18,6 @@ import RootLayout from './layouts/RootLayout';
 // router
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <AuthContextProvider>
       <Route path='/' element={<RootLayout />}>
         <Route index element={<Home />} />
         <Route path='login' element={<Login />} />
@@ -33,7 +31,6 @@ const router = createBrowserRouter(
         <Route path='account' element={<ProtectedRoute><Account /></ProtectedRoute>} />
         <Route path="*" element={<Error />} />
       </Route>
-    </AuthContextProvider>
   )
 )
 

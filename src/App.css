@@ -151,27 +151,11 @@ p {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-.product__container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 1.5rem;
-    margin: 1rem auto;
-}
 
 .item__description {
-    display: flex;
-    flex-direction: column;
-    margin: 1.5rem;
-    width: 350px;
+    background: #f1f1f1;
     padding: 0.5rem 0.5rem;
-    height: max-content;
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
     transition: var(--transition);
-}
-
-.item__description:hover {
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 }
 
 .price {
@@ -223,3 +207,31 @@ p {
         width: var(--container-width-sm);
     }
 }
+<<<<<<< HEAD
+=======
+
+/* ========== PRODUCTS STYLES ========== */
+#catalog {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-column-gap: 3px;
+    grid-row-gap: 20px;
+    padding: 20px;
+}
+
+.prd{
+    background-color: #ffffff;
+    border: 1px solid #f1f1f1;
+}
+
+.prd img{
+    margin: auto;
+    width: auto;
+    max-height: 200px;
+}
+
+.prd .image__container{
+    display: flex;
+    justify-content: center;
+}
+>>>>>>> remotes/origin/enhancements
