@@ -34,7 +34,7 @@ const Products = () => {
     // Add New Product function
     const addProduct = (e) => {
         e.preventDefault()
-        addDoc(colRef, {name: newProduct, category: newCategory, price: Number(newPrice), image_url: image })
+        addDoc(colRef, {name: newProduct, category: newCategory, price: Number(newPrice) })
         console.log('submit')
 
     }
@@ -65,53 +65,44 @@ const Products = () => {
                 setNewProduct={setNewProduct}
                 setNewCategory={setNewCategory}
                 setNewPrice={setNewPrice}
-                setImage={setImage}
             />
 
             <div id="catalog">
-            {products.map((item) => {
-                return (
-<<<<<<< HEAD
-                    <section key={item.id} className="container">
-                        <small>Category: {item.category}</small>
-                        {item.jumia_express ? <i>Jumia Express</i> : null}
-
-                        <div className='product__container'>
-=======
-                    <section key={item.id} className="prd">
->>>>>>> remotes/origin/enhancements
-                            <div className='image__container'>
-                                <img src={item.image_url} alt="" className='image' />
-                            </div>
-
-                            <div className='item__description'>
-                                <h5>Brand: {item.name}</h5>
-                            
-                                <p className='price'>
-                                Ksh. {item.price}/= 
-                                <span><a href={item.url} target="_blank" className='buy__item'>Buy Item</a></span>
-                                </p>
-                                
-                            
-                                <div className='buttons'>
-                                    <button
-                                        className='btn'
-                                        onClick={() => {updateItem(item.id, item.price)}}
-                                    >
-                                        Update Price
-                                    </button>
-
-                                    <button
-                                        className='btn'
-                                        onClick={() => {deleteItem(item.id)}}
-                                    >
-                                        Delete Item
-                                    </button>
+                {products.map((item) => {
+                    return (
+                        <section key={item.id} className="prd">
+                                <div className='image__container'>
+                                    <img src={item.image_url} alt="" className='image' />
                                 </div>
-                            </div>           
-                    </section>
-                )
-            })}
+
+                                <div className='item__description'>
+                                    <h5>Brand: {item.name}</h5>
+                                
+                                    <p className='price'>
+                                    Ksh. {item.price}/= 
+                                    <span><a href={item.url} target="_blank" className='buy__item'>Buy Item</a></span>
+                                    </p>
+                                    
+                                
+                                    <div className='buttons'>
+                                        <button
+                                            className='btn'
+                                            onClick={() => {updateItem(item.id, item.price)}}
+                                        >
+                                            Update Price
+                                        </button>
+
+                                        <button
+                                            className='btn'
+                                            onClick={() => {deleteItem(item.id)}}
+                                        >
+                                            Delete Item
+                                        </button>
+                                    </div>
+                                </div>           
+                        </section>
+                    )
+                })}
             </div>
             <button onClick={fetchProducts}>Load More</button>
             </div>

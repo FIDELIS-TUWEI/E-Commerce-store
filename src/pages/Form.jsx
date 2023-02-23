@@ -1,4 +1,4 @@
-const Form = ({addProduct, setNewProduct, setNewCategory, setNewPrice, setImage}) => {
+const Form = ({addProduct, setNewProduct, setNewCategory, setNewPrice}) => {
     return ( 
         <>
             <div className='form__container' id='form'>
@@ -23,13 +23,6 @@ const Form = ({addProduct, setNewProduct, setNewCategory, setNewPrice, setImage}
                     onChange={(e) => setNewPrice(e.target.value)}
                     />
         
-                    <label>Image Url</label>
-                    <input
-                    type="text"
-                    placeholder="Enter image URL"
-                    onChange={(e) => setImage(e.target.value)}
-                    />
-
                     <button type='submit' className='btn'>Add Item</button>
                 </form>
             </div>

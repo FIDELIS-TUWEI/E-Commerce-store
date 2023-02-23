@@ -207,8 +207,6 @@ p {
         width: var(--container-width-sm);
     }
 }
-<<<<<<< HEAD
-=======
 
 /* ========== PRODUCTS STYLES ========== */
 #catalog {
@@ -234,4 +232,3 @@ p {
     display: flex;
     justify-content: center;
 }
->>>>>>> remotes/origin/enhancements
