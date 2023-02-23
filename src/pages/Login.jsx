@@ -1,7 +1,7 @@
 import { async } from "@firebase/util";
 import { signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../Firebase";
 
 const Login = () => {
@@ -62,6 +62,8 @@ const Login = () => {
                     />
 
                     <button type="submit">Login</button>
+                    <br />
+                    <p>Don't have an account yet? <Link to="signup">Sign Up</Link> now!</p>
 
                 </form>
             </div>
