@@ -10,6 +10,7 @@ import Products from './pages/Products'
 import Account from './pages/Account'
 import Error from './pages/Error'
 import { AuthContextProvider } from './context/AuthContext'
+import ProtectedRoute from './pages/ProtectedRoute
 
 // layout
 import RootLayout from './layouts/RootLayout';
@@ -23,8 +24,13 @@ const router = createBrowserRouter(
         <Route index element={<Home />} />
         <Route path='login' element={<Login />} />
         <Route path='signup' element={<SignUp />} />
-        <Route path='products' element={<Products />} />
-        <Route path='account' element={<Account />} />
+        <Route path='products' element={
+          <ProtectedRoute>
+            <Products />
+          </ProtectedRoute>
+          }
+        />
+        <Route path='account' element={<ProtectedRoute><Account /></ProtectedRoute>} />
         <Route path="*" element={<Error />} />
       </Route>
     </AuthContextProvider>
