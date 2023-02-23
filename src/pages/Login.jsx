@@ -3,25 +3,30 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../Firebase";
+import { userAuth } from '../context/AuthContext'
 
 const Login = () => {
 
     // useState
-    const [loginEmail, setLoginEmail] = useState("")
-    const [loginPassword, setLoginPassword] = useState("")
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+    const [error, setError = useState("")
+    const {login} = userAuth()
 
     // navigate to products after login
     const navigate = useNavigate();
 
     // handleLogin
-    const handleLogin = (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault();
+        setError("");
 
         try {
-            const user = signInWithEmailAndPassword(auth, loginEmail, loginPassword);
-            console.log(user)
-            navigate("/")
+            await signInWithEmailAndPassword(auth, email, password);
+            window.alert("Succesful Login")
+            navigate("account")
         } catch(error) {
+            setError(error.message)
             console.log(error.message)
         }
     }
@@ -35,14 +40,14 @@ const Login = () => {
                         type="text" 
                         placeholder="Enter your email" 
                         required
-                        onChange={(e) => setLoginEmail(e.target.value)}
+                        onChange={(e) => setEmail(e.target.value)}
                     />
                     <label htmlFor="password">Password</label>
                     <input 
                         type="password" 
                         placeholder="Enter valid password" 
                         required
-                        onChange={(e) => setLoginPassword(e.target.value)} 
+                        onChange={(e) => setPassword(e.target.value)} 
                     />
 
                     <button type="submit">Login</button>
