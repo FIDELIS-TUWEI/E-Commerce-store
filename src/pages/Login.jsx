@@ -1,5 +1,5 @@
 import { async } from "@firebase/util";
-import { signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../Firebase";
@@ -12,13 +12,6 @@ const Login = () => {
 
     // navigate to products after login
     const navigate = useNavigate();
-
-    // onAuthStateChanged
-    const [user, setUser] = useState({})
-
-    onAuthStateChanged(auth, (currentUser) => {
-        setUser(currentUser);
-    })
 
     // handleLogin
     const handleLogin = (e) => {
@@ -33,18 +26,9 @@ const Login = () => {
         }
     }
 
-    // handle logout
-    const handleLogout = async () => {
-        await signOut(auth);
-    }
-
     return ( 
         <>
             <div>
-                <h4>User logged in:</h4>
-                <button onClick={handleLogout} className="logout-btn">Logout</button>
-
-                {user?.email}
                 <form onSubmit={handleLogin} className="login__form">
                     <label htmlFor="login">Login</label>
                     <input 
