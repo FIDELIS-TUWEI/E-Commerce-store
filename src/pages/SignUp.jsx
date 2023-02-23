@@ -2,6 +2,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 import { auth } from "../Firebase";
 import { useNavigate } from "react-router-dom";
+import { Link } from 'react-router-dom'
 
 const SignUp = () => {
     //usestate
@@ -42,6 +43,8 @@ const SignUp = () => {
                     />
 
                     <button type="submit">Sign Up</button>
+                    <br />
+                    <p>Already have an account? <Link to="login">Login</Link></p>
                 </form>
             </div>
         </>
