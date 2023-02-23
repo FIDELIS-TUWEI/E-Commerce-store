@@ -56,7 +56,7 @@ const Products = () => {
 
     return ( 
         <>
-            <div>
+            <div className='container'>
             <Form
                 addProduct={addProduct}
                 setNewProduct={setNewProduct}
@@ -64,12 +64,10 @@ const Products = () => {
                 setNewPrice={setNewPrice}
             />
 
+            <div id="catalog">
             {products.map((item) => {
                 return (
-                    <section key={item.id} className="container">
-                        <small>Category: {item.category}</small>
-
-                        <div className='product__container'>
+                    <section key={item.id} className="prd">
                             <div className='image__container'>
                                 <img src={item.image_url} alt="" className='image' />
                             </div>
@@ -99,10 +97,10 @@ const Products = () => {
                                     </button>
                                 </div>
                             </div>           
-                        </div>
                     </section>
                 )
             })}
+            </div>
             <button onClick={fetchProducts}>Load More</button>
             </div>
         </>
