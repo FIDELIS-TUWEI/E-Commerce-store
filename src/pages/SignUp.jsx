@@ -1,25 +1,31 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 import { auth } from "../Firebase";
-import { useNavigate } from "react-router-dom";
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from '../context/AuthContext'
 
 const SignUp = () => {
     //usestate
-    const [registerEmail, setRegisterEmail] = useState("");
-    const [registerPassword, setRegisterPassword] = useState("")
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("")
+    const [error, setError] = useState("")
+    
+    const {createUser} = useAuth()
 
     // navigate home after sign up
     const navigate = useNavigate()
 
     // handleRegister form submit
-    const handleRegister = (e) => {
-        e.preventDefault()
-        try{
-        const user = createUserWithEmailAndPassword(auth, registerEmail, registerPassword);
+    const handleRegister = async (e) => {
+        e.preventDefault();
+        setError("")
+        
+        try {
+            await createUserWithEmailAndPassword(email, password);
             console.log(user)
             navigate("/")
         } catch(error) {
+            setError(error.message)
             console.log(error.message)
         }
     }
@@ -32,14 +38,14 @@ const SignUp = () => {
                         type="text"
                         placeholder="Enter email"
                         required
-                        onChange={(e) => setRegisterEmail(e.target.value)}
+                        onChange={(e) => setEmail(e.target.value)}
                     />
                     <label htmlFor="password">Password</label>
                     <input 
                         type="password"
                         placeholder="Enter password"
                         required
-                        onChange={(e) => setRegisterPassword(e.target.value)}
+                        onChange={(e) => setPassword(e.target.value)}
                     />
 
                     <button type="submit">Sign Up</button>
