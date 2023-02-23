@@ -80,7 +80,7 @@ const Products = () => {
                                 
                                     <p className='price'>
                                     Ksh. {item.price}/= 
-                                    <span><a href={item.url} target="_blank" className='buy__item'>Buy Item</a></span>
+                                    <span><a href={item.url} target="_blank" className='buy__item'>Buy item</a></span>
                                     </p>
                                     
                                 

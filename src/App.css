@@ -169,7 +169,7 @@ p {
     border: 1px solid orange;
     color: var(--color-white);
     border-radius: 0.2rem;
-    padding: 0.3rem;
+    font-size: 0.9rem;
 }
 
 .buttons {
@@ -179,7 +179,7 @@ p {
 }
 
 .btn {
-    padding: 0.5rem;
+    padding: 0.2rem;
     width: max-content;
     cursor: pointer;
     transition: var(--transition);
@@ -211,8 +211,8 @@ p {
 /* ========== PRODUCTS STYLES ========== */
 #catalog {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-column-gap: 3px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 10px;
     grid-row-gap: 20px;
     padding: 20px;
 }
