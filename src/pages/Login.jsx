@@ -5,11 +5,16 @@ const Login = () => {
     // useState
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    
+    // handleLogin
+    const handleLogin = (e) => {
+        e.preventDefault();
+    }
 
     return ( 
         <>
             <div className="signup__form">
-                <form>
+                <form onSubmit={handleLogin}>
                     <label htmlFor="login">Login</label>
                     <input 
                         type="text"
