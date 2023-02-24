@@ -1,4 +1,4 @@
-import { useContext } from 'react
+import { useContext, useState } from 'react
 
 // react hook
 const AuthContext = React.createContext()
@@ -10,8 +10,11 @@ export const useAuth = () => {
 
 // authprovider
 export const AuthProvider = ({children}) => {
+  // useState
+  const [user, setUser] = useState();
+  
   return (
-    <AuthContext.Provider>
+    <AuthContext.Provider value={value}>
       {children}
     </AuthContext.Provider>
   )
