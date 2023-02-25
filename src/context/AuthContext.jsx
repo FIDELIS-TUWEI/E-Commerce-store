@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import { useContext, useState, useEffect } from 'react'
 import { auth } from '../Firebase'
 
 // react hook
@@ -19,10 +19,17 @@ export const AuthProvider = ({children}) => {
     return auth.createUserWithEmailAndPassword(email, password)
   }
 
-  // 
+  // useEffect onAuthStateChanged to set currentuser
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged(user => {
+      setCurrentUser(user)
+    })
+    return unsubscribe
+  }, [])
 
   const value = {
-    currentUser
+    currentUser,
+    signUp
   }
   
   return (
