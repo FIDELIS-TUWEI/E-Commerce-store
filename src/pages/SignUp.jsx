@@ -16,10 +16,10 @@ const SignUp = () => {
         e.preventDefault()
         createUserWithEmailAndPassword(auth, email, password)
           .then((userCredentials) => {
-            console.log(userCredentials)
-            navigate("/")
-        }).catch((error) => {
-            console.log(error.message)
+             console.log(userCredentials)
+             navigate("/")
+          }).catch((error) => {
+             console.log(error.message)
         })
     }
 
