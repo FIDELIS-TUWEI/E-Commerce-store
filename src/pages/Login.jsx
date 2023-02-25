@@ -27,6 +27,7 @@ const Login = () => {
         <>
             <div className="signup__form">
                 <form onSubmit={handleLogin}>
+                    <h1>Login to your account</h1>
                     <label htmlFor="login">Login</label>
                     <input 
                         type="text"
