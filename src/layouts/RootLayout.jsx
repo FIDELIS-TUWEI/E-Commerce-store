@@ -13,7 +13,7 @@ const RootLayout = () => {
                         <NavLink to='login'>Login</NavLink>
                         <NavLink to='signup'>Sign Up</NavLink>
                         <NavLink to='products'>Products</NavLink>
-                        <NavLink to='authDetails'>AuthDetails</NavLink>
+                        <NavLink to='authdetails'>AuthDetails</NavLink>
                     </nav>
                 </header>
 
