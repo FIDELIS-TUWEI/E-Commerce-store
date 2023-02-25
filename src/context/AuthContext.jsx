@@ -27,6 +27,7 @@ export const AuthProvider = ({children}) => {
     return unsubscribe
   }, [])
 
+  // value
   const value = {
     currentUser,
     signUp
