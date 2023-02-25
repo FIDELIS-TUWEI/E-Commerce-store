@@ -1,9 +1,12 @@
+import { Navigate } from 'react-router-dom'
+
 const Home = () => {
     return ( 
         <>
             <div className="home__section">
                 <h2>Welcome to Fleekyffect</h2>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, voluptate impedit placeat, adipisci hic atque dignissimos nostrum quam ad, officia aut deserunt. Placeat nesciunt esse consequuntur, odit repellendus explicabo corporis.</p>
+                <Navigate to="signup">Get Started</Navigate>
             </div>
             
             <footer>
