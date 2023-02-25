@@ -34,7 +34,7 @@ const Products = () => {
     // Add New Product function
     const addProduct = (e) => {
         e.preventDefault()
-        addDoc(colRef, {name: newProduct, category: newCategory, price: Number(newPrice) })
+        addDoc(colRef, {name: newProduct, category: newCategory, price: Number(newPrice), image_url: image })
         console.log('submit')
 
     }
@@ -65,6 +65,7 @@ const Products = () => {
                 setNewProduct={setNewProduct}
                 setNewCategory={setNewCategory}
                 setNewPrice={setNewPrice}
+                setImage={setImage}
             />
 
             <div id="catalog">
