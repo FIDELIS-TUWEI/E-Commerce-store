@@ -15,7 +15,7 @@ const SignUp = () => {
     const handleRegister = (e) => {
         e.preventDefault()
         createUserWithEmailAndPassword(auth, email, password)
-            .then((userCredentials) => {
+          .then((userCredentials) => {
             console.log(userCredentials)
             navigate("/")
         }).catch((error) => {
