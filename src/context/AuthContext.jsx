@@ -1,4 +1,5 @@
-import { useContext, useState } from 'react
+import { useContext, useState } from 'react'
+import { auth } from '../Firebase'
 
 // react hook
 const AuthContext = React.createContext()
@@ -11,7 +12,18 @@ export const useAuth = () => {
 // authprovider
 export const AuthProvider = ({children}) => {
   // useState
-  const [user, setUser] = useState();
+  const [currentUser, setCurrentUser] = useState();
+
+  // create user
+  const signUp = (email, password) => {
+    return auth.createUserWithEmailAndPassword(email, password)
+  }
+
+  // 
+
+  const value = {
+    currentUser
+  }
   
   return (
     <AuthContext.Provider value={value}>

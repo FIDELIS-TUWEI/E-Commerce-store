@@ -5,6 +5,7 @@ const SignUp = () => {
     // useState
     const [signUpPassword, setSignUpPassword] = useState("")
     const [signUpEmail, setSignUpEmail] = useState("")
+    
     return ( 
         <>
             <div className="signup__form">
