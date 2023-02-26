@@ -1,4 +1,4 @@
-import { Navigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const Home = () => {
     return ( 
@@ -6,7 +6,7 @@ const Home = () => {
             <div className="home__section">
                 <h2>Welcome to Fleekyffect</h2>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, voluptate impedit placeat, adipisci hic atque dignissimos nostrum quam ad, officia aut deserunt. Placeat nesciunt esse consequuntur, odit repellendus explicabo corporis.</p>
-                <Navigate to="signup">Get Started</Navigate>
+                <Link to="signup">Get Started</Link>
             </div>
             
             <footer>

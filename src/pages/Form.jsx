@@ -5,30 +5,30 @@ const Form = ({addProduct, setNewProduct, setNewCategory, setNewPrice, setImage}
                 <form onSubmit={addProduct} className="form">
                     <label>Product Name:</label>
                     <input 
-                    type="text"
-                    placeholder='New Product'
-                    onChange={(e) => setNewProduct(e.target.value)}
+                        type="text"
+                        placeholder='New Product'
+                        onChange={(e) => setNewProduct(e.target.value)}
                     />
                     <label>Category:</label>
                     <input
-                    type='text'
-                    placeholder='Category'
-                    onChange={(e) => setNewCategory(e.target.value)}
+                        type='text'
+                        placeholder='Category'
+                        onChange={(e) => setNewCategory(e.target.value)}
                     />
 
                     <label>Price:</label>
                     <input
-                    type='number'
-                    placeholder='Price'
-                    onChange={(e) => setNewPrice(e.target.value)}
+                        type='number'
+                        placeholder='Price'
+                        onChange={(e) => setNewPrice(e.target.value)}
                     />
                     
                     <label>Image:</label>
                     <input
-                    type="text"
-                    placeholder="Enter Image Url"
-                    required
-                    onChange={(e) setImage(e.target.value)}
+                        type="text"
+                        placeholder="Enter Image Url"
+                        required
+                        onChange={(e) => setImage(e.target.value)}
                     />
         
                     <button type='submit' className='btn'>Add Item</button>

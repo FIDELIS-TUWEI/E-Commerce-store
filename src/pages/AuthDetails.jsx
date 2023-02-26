@@ -1,13 +1,14 @@
-import {useState, useEffect, useNavigate } from 'react'
+import {useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { auth } from '../Firebase'
 import { onAuthStateChanged, signOut } from 'firebase/auth'
 
 const AuthDetails = () => {
   //useState
-  const [authUser, setAuthUser] = usestate(null)
+  const [authUser, setAuthUser] = useState(null)
   
   //useNavigate
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   
   //useEffect
   useEffect(() => {
@@ -38,6 +39,6 @@ const AuthDetails = () => {
     </>
   )
   
-})
+}
 
 export default AuthDetails;

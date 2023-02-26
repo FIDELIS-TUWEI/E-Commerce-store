@@ -16,8 +16,8 @@ const SignUp = () => {
         e.preventDefault()
         createUserWithEmailAndPassword(auth, email, password)
           .then((userCredentials) => {
-             console.log(userCredentials)
-             navigate("/")
+            console.log(userCredentials)
+            navigate("/")
           }).catch((error) => {
              console.log(error.message)
         })
@@ -51,7 +51,7 @@ const SignUp = () => {
                 </form>              
             </div>
         </>
-     );
+    );
 }
  
 export default SignUp;
