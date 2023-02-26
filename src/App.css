@@ -76,13 +76,15 @@ footer {
     justify-content: center;
     align-items: center;
     border: 1px solid red;
-    width: 400px;
-    margin: 1rem auto;
+    width: 300px;
+    height: 500px;
+    margin: 2rem auto;
 }
 
 .signup__form input {
     width: 200px;
     height: 30px;
+    padding: 0 0.2rem;
     display: flex;
     align-items: center;
 }
