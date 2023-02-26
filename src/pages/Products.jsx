@@ -58,9 +58,10 @@ const Products = () => {
 
                                 <div className='item__description'>
                                     <h5>Brand: {item.name}</h5>
-                                
+                                    { item.jumia_express ? <i className='jumia__express'>Jumia Express</i> : null }
                                     <p className='price'> Ksh. {item.price}/= </p>
                                     <span><a href={item.url} target="_blank" className='buy__item'>Buy item</a></span>
+                                    
                                 </div>           
                         </section>
                     )

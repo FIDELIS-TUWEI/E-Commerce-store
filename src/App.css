@@ -118,7 +118,6 @@ p {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-
 .item__description {
     background: #f1f1f1;
     padding: 0.5rem 0.5rem;
@@ -136,6 +135,7 @@ p {
     border: 1px solid orange;
     color: var(--color-white);
     font-size: 0.9rem;
+    padding: 0.4rem;
 }
 
 .load__more {
@@ -184,4 +184,8 @@ p {
 .prd .image__container{
     display: flex;
     justify-content: center;
+}
+
+.jumia__express {
+    color: orangered;
 }
