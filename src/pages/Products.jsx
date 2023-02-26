@@ -1,13 +1,14 @@
 import { addDoc, deleteDoc, getFirestore, updateDoc } from 'firebase/firestore';
 import { collection, doc } from 'firebase/firestore'
 import { useState, useEffect } from 'react';
-import { Box, Card, Container, Grid, IconButton, Link, Stack, Typography, useTheme } from '@mui/material';
+import { Box, Card, CircularProgress, Container, Grid, IconButton, Link, Stack, Typography, useTheme } from '@mui/material';
 import { PlaylistAddCircleOutlined } from '@mui/icons-material';
 import { getProducts } from '../Firebase';
 
 const Products = () => {
     // useState
     const [products, setProducts] = useState([])
+    const [isLoadingProducts, setIsLoadingProducts] = useState(false)
     const [lastVisibleProduct, setLastVisibleProduct] = useState(null)
     const [newProduct, setNewProduct] = useState("")
     const [newCategory, setNewCategory] = useState("")
@@ -15,9 +16,11 @@ const Products = () => {
     const [image, setImage] = useState("")
 
     const fetchProducts = async () => {
+        setIsLoadingProducts(true)
         const result = await getProducts(lastVisibleProduct)
         setProducts([...products, ...result["products"]])
         setLastVisibleProduct(result["lastVisible"])
+        setIsLoadingProducts(false)
     }
 
     // Init services
@@ -37,7 +40,6 @@ const Products = () => {
         e.preventDefault()
         addDoc(colRef, { name: newProduct, category: newCategory, price: Number(newPrice), image_url: image })
         console.log('submit')
-
     }
 
     // Update Item
@@ -139,6 +141,25 @@ const Products = () => {
                         )
                     }
                 </Grid>
+
+                {
+                    isLoadingProducts ?
+                        <Stack alignItems="center" py={5}>
+                            <CircularProgress />
+                        </Stack> :
+                        products.length != 0 ?
+                        <Stack 
+                            mt={2}
+                            py={3} 
+                            alignItems="center" 
+                            sx={{
+                                cursor: "pointer",
+                                backgroundColor: "#f1f1f1"
+                            }} 
+                            onClick={fetchProducts}>
+                            <Typography>Load More</Typography>
+                        </Stack>: <></>
+                }
             </Container>
         </>
     );
