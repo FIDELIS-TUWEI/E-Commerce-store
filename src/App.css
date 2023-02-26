@@ -135,30 +135,16 @@ p {
     background-color: orange;
     border: 1px solid orange;
     color: var(--color-white);
-    border-radius: 0.2rem;
     font-size: 0.9rem;
 }
 
-.buttons {
-    margin-top: 1rem;
-    display: flex;
-    gap: 1rem;
-}
-
-.btn {
-    padding: 0.2rem;
-    width: max-content;
-    cursor: pointer;
-    transition: var(--transition);
+.load__more {
+    margin: 0.8rem 0.8rem;
+    padding: 0.4rem;
     border: none;
-    border-radius: 0.3rem;
-    background: orange;
+    cursor: pointer;
+    background: olivedrab;
     color: var(--color-white);
-    font-weight: 400;
-}
-
-.btn:hover {
-    background: rgb(116, 31, 0);
 }
 
 /* ========== MEDIA QUERY(MEDIUM DEVICE) ========== */

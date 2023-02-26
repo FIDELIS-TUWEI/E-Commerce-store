@@ -1,5 +1,5 @@
 import firebase, { getProducts } from '../Firebase'
-import { addDoc, deleteDoc, getFirestore, onSnapshot, updateDoc } from 'firebase/firestore';
+import { addDoc, deleteDoc, getFirestore, updateDoc } from 'firebase/firestore';
 import  { collection, doc } from 'firebase/firestore'
 import { useState, useEffect } from 'react';
 import Form from './Form'
@@ -35,26 +35,6 @@ const Products = () => {
     const addProduct = (e) => {
         e.preventDefault()
         addDoc(colRef, {name: newProduct, category: newCategory, price: Number(newPrice), image_url: image })
-        console.log('submit')
-
-    }
-
-    // Update Item
-    const updateItem = (id, price) => {
-        // document collection
-        const docRef = doc(db, "jumia_products", id)
-        // Increment price
-        const newPrice = {price: price + 1}
-        //update price
-        updateDoc(docRef, newPrice)
-    }
-
-    // Delete Item
-    const deleteItem = (id) => {
-        // document collection
-        const docRef = doc(db, "jumia_products", id)
-        // delete item according to id
-        deleteDoc(docRef)
     }
 
     return ( 
@@ -79,33 +59,14 @@ const Products = () => {
                                 <div className='item__description'>
                                     <h5>Brand: {item.name}</h5>
                                 
-                                    <p className='price'>
-                                    Ksh. {item.price}/= 
+                                    <p className='price'> Ksh. {item.price}/= </p>
                                     <span><a href={item.url} target="_blank" className='buy__item'>Buy item</a></span>
-                                    </p>
-                                    
-                                
-                                    <div className='buttons'>
-                                        <button
-                                            className='btn'
-                                            onClick={() => {updateItem(item.id, item.price)}}
-                                        >
-                                            Update Price
-                                        </button>
-
-                                        <button
-                                            className='btn'
-                                            onClick={() => {deleteItem(item.id)}}
-                                        >
-                                            Delete Item
-                                        </button>
-                                    </div>
                                 </div>           
                         </section>
                     )
                 })}
             </div>
-            <button onClick={fetchProducts}>Load More</button>
+            <button onClick={fetchProducts} className="load__more">Load More</button>
             </div>
         </>
     );
