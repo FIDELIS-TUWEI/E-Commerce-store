@@ -28,7 +28,7 @@ const SignUp = () => {
         <>
             <div className="signup__form">
                 <form onSubmit={handleRegister}>
-                    <h1>Create New Account</h1>
+                    <h3>Create New Account</h3>
                     <label htmlFor="signup">Sign Up</label>
                     <input 
                         type="text"
@@ -47,7 +47,7 @@ const SignUp = () => {
 
                     <button type="submit">Sign Up</button>
 
-                    <p>Already have an account? <Link to="login">Login</Link></p>
+                    <h5>Already have an account? <Link to="login">Login</Link></h5>
                 </form>              
             </div>
         </>

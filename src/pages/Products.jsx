@@ -140,8 +140,7 @@ const Products = () => {
                         )
                     }
 
-                </Grid>
-
+                </Grid
             </Container>
         </>
     );
