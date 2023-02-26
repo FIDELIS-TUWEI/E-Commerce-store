@@ -8,12 +8,12 @@ const RootLayout = () => {
                 <header>
                     <h3>Fleekyffect</h3>
 
-                    <nav>                     
+                    <nav className='navbar'>                     
                         <NavLink to='/'>Home</NavLink>
                         <NavLink to='login'>Login</NavLink>
                         <NavLink to='signup'>Sign Up</NavLink>
                         <NavLink to='products'>Products</NavLink>
-                        <NavLink to='authdetails'>AuthDetails</NavLink>
+                        <NavLink to='account'>Account</NavLink>
                     </nav>
                 </header>
 

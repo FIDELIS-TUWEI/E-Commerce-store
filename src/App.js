@@ -8,7 +8,7 @@ import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import Products from './pages/Products'
 import Error from './pages/Error'
-import AuthDetails from './pages/AuthDetails'
+import Account from './pages/Account'
 
 // layout
 import RootLayout from './layouts/RootLayout';
@@ -21,7 +21,7 @@ const router = createBrowserRouter(
         <Route index element={<Home />} />
         <Route path='login' element={<Login />} />
         <Route path='signup' element={<SignUp />} />
-        <Route path='authdetails' element={<AuthDetails />} />
+        <Route path='account' element={<Account />} />
         <Route path='products' element={<Products />} />
         <Route path="*" element={<Error />} />
       </Route>

@@ -1,16 +1,20 @@
 header {
     display: flex;
     align-items: center;
-    border: 2px solid red;
     max-width: 100%;
     margin: 0 auto;
     padding: 0 0.5rem;
+    background: goldenrod;
 }
 
-header nav {
+.navbar {
     display: flex;
     justify-content: flex-end;
     align-items: center;
     margin: 0 auto;
     gap: 1rem;
+}
+
+header h3 {
+    color: var(--color-white);
 }

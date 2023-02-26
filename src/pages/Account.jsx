@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { auth } from '../Firebase'
 import { onAuthStateChanged, signOut } from 'firebase/auth'
 
-const AuthDetails = () => {
+const Account = () => {
   //useState
   const [authUser, setAuthUser] = useState(null)
   
@@ -41,4 +41,4 @@ const AuthDetails = () => {
   
 }
 
-export default AuthDetails;
+export default Account;
