@@ -28,7 +28,7 @@ const SignUp = () => {
         <>
             <div className="signup__form">
                 <form onSubmit={handleRegister}>
-                    <h1>Create New Account</h1>
+                    <h3>Create New Account</h3>
                     <label htmlFor="signup">Sign Up</label>
                     <input 
                         type="text"
