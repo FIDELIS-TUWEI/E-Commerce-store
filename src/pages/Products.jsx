@@ -1,10 +1,9 @@
-import firebase, { getProducts } from '../Firebase'
-import { addDoc, deleteDoc, getFirestore, onSnapshot, updateDoc } from 'firebase/firestore';
+import { addDoc, deleteDoc, getFirestore, updateDoc } from 'firebase/firestore';
 import { collection, doc } from 'firebase/firestore'
 import { useState, useEffect } from 'react';
-import Form from './Form'
-import { Box, Button, Card, Container, Grid, Icon, IconButton, Link, Stack, Typography, useTheme } from '@mui/material';
-import { ChevronRight, PlaylistAddCircleOutlined } from '@mui/icons-material';
+import { Box, Card, Container, Grid, IconButton, Link, Stack, Typography, useTheme } from '@mui/material';
+import { PlaylistAddCircleOutlined } from '@mui/icons-material';
+import { getProducts } from '../Firebase';
 
 const Products = () => {
     // useState
@@ -78,8 +77,8 @@ const Products = () => {
                                                 bottom: 0,
                                                 right: 0,
                                                 backgroundColor: "#ffffff"
-                                            }} 
-                                            aria-label="Add to catalog">
+                                            }}
+                                                aria-label="Add to catalog">
                                                 <PlaylistAddCircleOutlined fontSize="inherit" />
                                             </IconButton>
                                         </Stack>
@@ -139,8 +138,7 @@ const Products = () => {
                         }
                         )
                     }
-
-                </Grid
+                </Grid>
             </Container>
         </>
     );
