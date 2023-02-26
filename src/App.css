@@ -40,7 +40,37 @@ a {
 }
 
 img {
-    width: 100%;
+    max-width: 100%;
+}
+
+/* ========== HOME SECTION ========== */
+.home__section {
+    display: flex;
+    flex-direction: row;
+    margin: 1rem auto;
+    padding: 0 1rem;
+    gap: 0.8rem;
+}
+
+.landing__image {
+    border: 2px solid black;
+}
+
+.links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin: 1rem auto;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    margin: 0.8rem auto;
+    background: goldenrod;
+    color: var(--color-white);
+    font-weight: 400;
+    letter-spacing: 1.7px;
 }
 
 /* ========== FORM STYLES ========== */
