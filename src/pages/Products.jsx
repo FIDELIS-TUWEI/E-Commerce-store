@@ -1,4 +1,4 @@
-import { addDoc, deleteDoc, getFirestore, updateDoc } from 'firebase/firestore';
+import { getFirestore } from 'firebase/firestore';
 import { collection, doc } from 'firebase/firestore'
 import { useState, useEffect } from 'react';
 import { Box, Card, CircularProgress, Container, Grid, IconButton, Link, Stack, Typography, useTheme } from '@mui/material';
@@ -10,10 +10,6 @@ const Products = () => {
     const [products, setProducts] = useState([])
     const [isLoadingProducts, setIsLoadingProducts] = useState(false)
     const [lastVisibleProduct, setLastVisibleProduct] = useState(null)
-    const [newProduct, setNewProduct] = useState("")
-    const [newCategory, setNewCategory] = useState("")
-    const [newPrice, setNewPrice] = useState(0);
-    const [image, setImage] = useState("")
 
     const fetchProducts = async () => {
         setIsLoadingProducts(true)
@@ -33,32 +29,6 @@ const Products = () => {
     useEffect(() => {
         fetchProducts()
     }, []);
-
-
-    // Add New Product function
-    const addProduct = (e) => {
-        e.preventDefault()
-        addDoc(colRef, { name: newProduct, category: newCategory, price: Number(newPrice), image_url: image })
-        console.log('submit')
-    }
-
-    // Update Item
-    const updateItem = (id, price) => {
-        // document collection
-        const docRef = doc(db, "jumia_products", id)
-        // Increment price
-        const newPrice = { price: price + 1 }
-        //update price
-        updateDoc(docRef, newPrice)
-    }
-
-    // Delete Item
-    const deleteItem = (id) => {
-        // document collection
-        const docRef = doc(db, "jumia_products", id)
-        // delete item according to id
-        deleteDoc(docRef)
-    }
 
     const theme = useTheme()
 
