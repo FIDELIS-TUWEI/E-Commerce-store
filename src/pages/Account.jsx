@@ -34,9 +34,10 @@ const Account = () => {
   }
     
   return (
-    <>
-      { authUser ? <> <p>{`Signed in as ${authUser.email}`}</p> <button onClick={userSignOut}>Sign Out</button> </> : <p>Signed Out</p> }
-    </>
+    <div className='account__container'>
+      { authUser ? <> <p className='account'>{`Signed in as:  ${authUser.email}`}</p> 
+        <button onClick={userSignOut} className='signout__btn'>Sign Out</button> </> : <p>Signed Out</p> }
+    </div>
   )
   
 }

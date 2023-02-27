@@ -101,6 +101,28 @@ footer {
     margin-top: 0.8rem;
 }
 
+.account__container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 3rem auto;
+}
+
+.account {
+    color: #4db5ff;
+}
+
+.signout__btn {
+    background-color: orange;
+    color: var(--color-white);
+    border: none;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    margin-top: 0.3rem;
+    font-weight: 700;
+}
+
 /* ========== GENERAL STYLES ========== */
 small {
     font-style: italic;
@@ -194,6 +216,3 @@ p {
     justify-content: center;
 }
 
-.jumia__express {
-    color: orangered;
-}
