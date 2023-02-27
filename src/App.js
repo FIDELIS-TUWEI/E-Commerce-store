@@ -12,6 +12,8 @@ import Account from './pages/Account'
 
 // layout
 import RootLayout from './layouts/RootLayout';
+import { ThemeProvider } from '@mui/material';
+import {theme} from './theme';
 
 
 // router
@@ -31,7 +33,9 @@ const router = createBrowserRouter(
 const App = () => {
   return ( 
     <div className="App">
-      <RouterProvider router={router} />
+      <ThemeProvider theme={theme}>
+        <RouterProvider router={router} />
+      </ThemeProvider>
     </div>
    );
 }

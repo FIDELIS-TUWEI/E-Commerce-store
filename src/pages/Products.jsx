@@ -1,12 +1,14 @@
-import firebase, { getProducts } from '../Firebase'
 import { addDoc, deleteDoc, getFirestore, updateDoc } from 'firebase/firestore';
-import  { collection, doc } from 'firebase/firestore'
+import { collection, doc } from 'firebase/firestore'
 import { useState, useEffect } from 'react';
-import Form from './Form'
+import { Box, Card, CircularProgress, Container, Grid, IconButton, Link, Stack, Typography, useTheme } from '@mui/material';
+import { PlaylistAddCircleOutlined } from '@mui/icons-material';
+import { getProducts } from '../Firebase';
 
 const Products = () => {
     // useState
     const [products, setProducts] = useState([])
+    const [isLoadingProducts, setIsLoadingProducts] = useState(false)
     const [lastVisibleProduct, setLastVisibleProduct] = useState(null)
     const [newProduct, setNewProduct] = useState("")
     const [newCategory, setNewCategory] = useState("")
@@ -14,9 +16,11 @@ const Products = () => {
     const [image, setImage] = useState("")
 
     const fetchProducts = async () => {
+        setIsLoadingProducts(true)
         const result = await getProducts(lastVisibleProduct)
         setProducts([...products, ...result["products"]])
         setLastVisibleProduct(result["lastVisible"])
+        setIsLoadingProducts(false)
     }
 
     // Init services
@@ -30,47 +34,135 @@ const Products = () => {
         fetchProducts()
     }, []);
 
-    
+
     // Add New Product function
     const addProduct = (e) => {
         e.preventDefault()
-        addDoc(colRef, {name: newProduct, category: newCategory, price: Number(newPrice), image_url: image })
+        addDoc(colRef, { name: newProduct, category: newCategory, price: Number(newPrice), image_url: image })
+        console.log('submit')
     }
 
-    return ( 
+    // Update Item
+    const updateItem = (id, price) => {
+        // document collection
+        const docRef = doc(db, "jumia_products", id)
+        // Increment price
+        const newPrice = { price: price + 1 }
+        //update price
+        updateDoc(docRef, newPrice)
+    }
+
+    // Delete Item
+    const deleteItem = (id) => {
+        // document collection
+        const docRef = doc(db, "jumia_products", id)
+        // delete item according to id
+        deleteDoc(docRef)
+    }
+
+    const theme = useTheme()
+
+    return (
         <>
-            <div className='container'>
-            <Form
-                addProduct={addProduct}
-                setNewProduct={setNewProduct}
-                setNewCategory={setNewCategory}
-                setNewPrice={setNewPrice}
-                setImage={setImage}
-            />
+            <Container>
+                <Grid mt={4} container columnSpacing={1} rowSpacing={3}>
+                    {
+                        products.map(product => {
+                            const hasDiscount = product.old_price || (product.lower_old_price_limit && product.upper_old_price_limit)
+                            return <Grid item xs={6} md={4} lg={3} key={product.id}>
+                                <Card>
+                                    <Stack>
+                                        <Stack sx={{ position: "relative" }}>
+                                            <img src={product.image_url} alt={product.name} />
+                                            <IconButton color="primary" size="large" sx={{
+                                                position: "absolute",
+                                                bottom: 0,
+                                                right: 0,
+                                                backgroundColor: "#ffffff"
+                                            }}
+                                                aria-label="Add to catalog">
+                                                <PlaylistAddCircleOutlined fontSize="inherit" />
+                                            </IconButton>
+                                        </Stack>
 
-            <div id="catalog">
-                {products.map((item) => {
-                    return (
-                        <section key={item.id} className="prd">
-                                <div className='image__container'>
-                                    <img src={item.image_url} alt="" className='image' />
-                                </div>
+                                        <Box p={2}>
+                                            <Typography variant="body2" sx={{
+                                                overflow: "hidden",
+                                                textOverflow: "ellipsis",
+                                                display: "-webkit-box",
+                                                WebkitLineClamp: "1",
+                                                WebkitBoxOrient: "vertical",
+                                            }}> {product.name} </Typography>
 
-                                <div className='item__description'>
-                                    <h5>Brand: {item.name}</h5>
-                                    { item.jumia_express ? <i className='jumia__express'>Jumia Express</i> : null }
-                                    <p className='price'> Ksh. {item.price}/= </p>
-                                    <span><a href={item.url} target="_blank" className='buy__item'>Buy item</a></span>
-                                    
-                                </div>           
-                        </section>
-                    )
-                })}
-            </div>
-            <button onClick={fetchProducts} className="load__more">Load More</button>
-            </div>
+
+                                            <Typography
+                                                variant="body2"
+                                                mt={1}
+                                                sx={{
+                                                    textDecoration: hasDiscount ? "line-through" : "none"
+                                                }}
+                                                textAlign={hasDiscount ? "left" : "right"}
+                                                color={hasDiscount ? "inherit" : 'GrayText'}>
+                                                {!hasDiscount ? "No Discount" : "Ksh " + product.old_price || product.lower_old_price_limit && product.upper_old_price_limit}
+                                            </Typography>
+
+
+                                            <Stack direction="row" justifyContent="space-between">
+                                                <Typography variant="h6">Ksh {product.price}</Typography>
+                                                <Box>
+                                                    {
+                                                        product.percentage_discount ?
+                                                            <Typography
+                                                                textAlign="center"
+                                                                sx={{
+                                                                    textDecoration: "line-through"
+                                                                }}
+                                                                color="primary"> {product.percentage_discount}%</Typography> :
+                                                            <Box />
+                                                    }
+                                                </Box>
+                                            </Stack>
+
+                                            <Stack alignItems="center">
+                                                <Link
+                                                    href={product.url}
+                                                    color="inherit"
+                                                    underline="none"
+                                                    target="blank"
+                                                    rel="noreferrer">
+                                                    View In Jumia
+                                                </Link>
+                                            </Stack>
+                                        </Box>
+                                    </Stack>
+                                </Card>
+                            </Grid>
+                        }
+                        )
+                    }
+                </Grid>
+
+                {
+                    isLoadingProducts ?
+                        <Stack alignItems="center" py={5}>
+                            <CircularProgress />
+                        </Stack> :
+                        products.length != 0 ?
+                        <Stack 
+                            mt={2}
+                            py={3} 
+                            alignItems="center" 
+                            sx={{
+                                cursor: "pointer",
+                                backgroundColor: "#f1f1f1"
+                            }} 
+                            onClick={fetchProducts}>
+                            <Typography>Load More</Typography>
+                        </Stack>: <></>
+                }
+            </Container>
         </>
     );
 }
- 
+
 export default Products;
