@@ -16,10 +16,10 @@ const Login = () => {
         e.preventDefault();
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredentials) => {
-                console.log(userCredentials)
                 navigate("/products")
+                window.alert("Welcome to Fleekyffect")
             }).catch((error) => {
-                console.log(error.message)
+                window.alert("Invalid email or password")
             })
     }
 
