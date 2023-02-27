@@ -186,6 +186,14 @@ p {
     color: var(--color-white);
 }
 
+.error-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 3rem;
+}
+
 /* ========== MEDIA QUERY(MEDIUM DEVICE) ========== */
 @media screen and (max-width: 1024px) {
     .container {
