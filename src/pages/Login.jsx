@@ -17,7 +17,7 @@ const Login = () => {
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredentials) => {
                 navigate("/products")
-                window.alert("Welcome to Fleekyffect")
+                window.alert(`Welcome back ${email}`)
             }).catch((error) => {
                 window.alert("Invalid email or password")
             })
