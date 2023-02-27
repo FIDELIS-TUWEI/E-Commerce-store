@@ -107,6 +107,11 @@ footer {
     cursor: pointer;
     font-weight: 700;
     margin-top: 0.8rem;
+    transition: var(--transition);
+}
+
+.signup__form button:hover {
+    background-color: olivedrab;
 }
 
 .account__container {
