@@ -129,6 +129,7 @@ footer {
     border-radius: 0.3rem;
     margin-top: 0.3rem;
     font-weight: 700;
+    cursor: pointer;
 }
 
 /* ========== GENERAL STYLES ========== */
