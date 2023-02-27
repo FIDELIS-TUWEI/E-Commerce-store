@@ -26,8 +26,8 @@ const Account = () => {
   const userSignOut = () => {
     signOut(auth)
       .then(() => {
-        console.log("Successful Sign Out")
         navigate("/")
+        window.alert("Succesful Sign Out! Thank you for choosing Fleekyffect")
       }).catch((error) => {
         console.log(error.message)
       })
