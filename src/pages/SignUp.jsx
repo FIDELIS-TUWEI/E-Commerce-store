@@ -16,10 +16,10 @@ const SignUp = () => {
         e.preventDefault()
         createUserWithEmailAndPassword(auth, email, password)
           .then((userCredentials) => {
-            console.log(userCredentials)
+            window.alert("Succesful Sign Up")
             navigate("/")
           }).catch((error) => {
-             console.log(error.message)
+             window.alert("Invalid email or password")
         })
     }
 
