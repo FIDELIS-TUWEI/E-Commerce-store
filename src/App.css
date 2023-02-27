@@ -132,6 +132,11 @@ footer {
     cursor: pointer;
 }
 
+.auth__link {
+    color: var(--color-primary);
+    text-decoration: underline;
+}
+
 /* ========== GENERAL STYLES ========== */
 small {
     font-style: italic;
