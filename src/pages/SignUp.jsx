@@ -17,7 +17,7 @@ const SignUp = () => {
         createUserWithEmailAndPassword(auth, email, password)
           .then((userCredentials) => {
             window.alert("Succesful Sign Up")
-            navigate("/")
+            navigate("/products")
           }).catch((error) => {
              window.alert("Invalid email or password")
         })
