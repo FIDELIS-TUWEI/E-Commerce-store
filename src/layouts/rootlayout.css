@@ -14,6 +14,11 @@ header {
     gap: 1rem;
 }
 
+.active {
+    color: green;
+}
+
+
 header h3 {
     color: var(--color-white);
 }
