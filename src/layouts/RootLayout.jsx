@@ -11,7 +11,7 @@ const RootLayout = () => {
                     <nav className='navbar'>                     
                         <NavLink to='/'>Home</NavLink>
                         <NavLink to='login'>Login</NavLink>
-                        <NavLink to='signup'>Sign Up</NavLink>
+                        <NavLink to='signup'>SignUp</NavLink>
                         <NavLink to='products'>Products</NavLink>
                         <NavLink to='account'>Account</NavLink>
                     </nav>
