@@ -59,6 +59,11 @@ img {
     border-radius: 0.3rem;
     padding: 0.2rem;
     background: goldenrod;
+    transition: var(--transition);
+}
+
+.home__link:hover {
+    background: olivedrab;
 }
 
 .links {
@@ -135,6 +140,11 @@ footer {
     margin-top: 0.3rem;
     font-weight: 700;
     cursor: pointer;
+    transition: var(--transition);
+}
+
+.signout__btn:hover {
+    background: olivedrab;
 }
 
 .auth__link {
