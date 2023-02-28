@@ -241,6 +241,7 @@ p {
     .home__section {
         display: flex;
         flex-direction: column;
+        height: 100%;
     }
     .home__title {
         font-size: 1rem;
@@ -252,6 +253,7 @@ p {
     .landing__image {
         margin-top: 1rem;
     }
+    
 }
 
 /* ========== PRODUCTS STYLES ========== */
