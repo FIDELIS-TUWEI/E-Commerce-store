@@ -51,7 +51,6 @@ img {
     margin: 1rem auto;
     padding: 0 1rem;
     gap: 0.8rem;
-    height: 100vh;
 }
 
 .home__title {
@@ -104,6 +103,8 @@ footer {
     width: 300px;
     height: 500px;
     margin: 2rem auto;
+    background: #4a4a6e;
+    color: var(--color-light);
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
@@ -176,46 +177,10 @@ small {
 
 h5 {
     font-weight: 300;
-    color: var(--color-bg);
 }
 
 p {
     font-weight: 600;
-}
-
-.container {
-    margin: 0.8rem auto;
-    width: 75%;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-}
-
-.item__description {
-    background: #f1f1f1;
-    padding: 0.5rem 0.5rem;
-    transition: var(--transition);
-}
-
-.price {
-    margin: 1rem 0;
-    display: flex;
-    gap: 2rem;
-}
-
-.buy__item {
-    background-color: orange;
-    border: 1px solid orange;
-    color: var(--color-white);
-    font-size: 0.9rem;
-    padding: 0.4rem;
-}
-
-.load__more {
-    margin: 0.8rem 0.8rem;
-    padding: 0.4rem;
-    border: none;
-    cursor: pointer;
-    background: olivedrab;
-    color: var(--color-white);
 }
 
 .error-page {
@@ -228,16 +193,13 @@ p {
 
 /* ========== MEDIA QUERY(MEDIUM DEVICE) ========== */
 @media screen and (max-width: 1024px) {
-    .container {
-        width: var(--container-width-md);
+    .home__section {
+        height: 100%;
     }
 }
 
 /* ========== MEDIA QUERY(SMALL DEVICE) ========== */
 @media screen and (max-width: 600px) {
-    .container {
-        width: var(--container-width-sm);
-    }
     .home__section {
         display: flex;
         flex-direction: column;
