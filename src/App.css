@@ -226,6 +226,10 @@ p {
     .container {
         width: var(--container-width-sm);
     }
+    .home__section {
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 /* ========== PRODUCTS STYLES ========== */
