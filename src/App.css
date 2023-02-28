@@ -51,6 +51,16 @@ img {
     margin: 1rem auto;
     padding: 0 1rem;
     gap: 0.8rem;
+    height: 100vh;
+}
+
+.home__title {
+    color: goldenrod;
+}
+
+.home__description {
+    color: var(--color-bg);
+    font-style: italic;
 }
 
 .home__link {
@@ -60,6 +70,7 @@ img {
     padding: 0.2rem;
     background: goldenrod;
     transition: var(--transition);
+    margin: 0.9rem;
 }
 
 .home__link:hover {
@@ -81,6 +92,7 @@ footer {
     color: var(--color-white);
     font-weight: 400;
     letter-spacing: 1.7px;
+    max-width: 100%;
 }
 
 /* ========== FORM STYLES ========== */
@@ -229,6 +241,16 @@ p {
     .home__section {
         display: flex;
         flex-direction: column;
+    }
+    .home__title {
+        font-size: 1rem;
+    }
+    .home__description {
+        font-size: 0.7rem;
+        margin: 0.8rem;
+    }
+    .landing__image {
+        margin-top: 1rem;
     }
 }
 
