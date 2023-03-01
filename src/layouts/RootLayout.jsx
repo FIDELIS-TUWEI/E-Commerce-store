@@ -16,7 +16,14 @@ const RootLayout = () => {
                         <NavLink to='signup' onClick={(e) => setActive} className={active ? "active" : ""}>SignUp</NavLink>
                         <NavLink to='products' onClick={(e) => setActive} className={active ? "active" : ""}>Products</NavLink>
                         <NavLink to='account' onClick={(e) => setActive} className={active ? "active" : ""}>Account</NavLink>
+
+                        
                     </nav>
+                    <div className="hambuger__menu">
+                        <span className="bar"></span>
+                        <span className="bar"></span>
+                        <span className="bar"></span>
+                    </div>
                 </header>
 
                 <main>

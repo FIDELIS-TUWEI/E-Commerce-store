@@ -1,5 +1,7 @@
 header {
     display: flex;
+    justify-content: space-between;
+    gap: 1rem;
     align-items: center;
     max-width: 100%;
     margin: 0 auto;
@@ -13,6 +15,10 @@ header {
     margin: 0 auto;
     gap: 1rem;
     font-weight: 400;
+    position: fixed;
+    right: -100%;
+    top: 50px;
+    height: 70%;
 }
 
 .active {
@@ -28,7 +34,22 @@ header h3 {
     color: var(--color-white);
 }
 
-@media screen and (max-width: 480px) {
+.hambuger__menu {
+    display: block;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 30px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: var(--color-white);
+}
+
+@media screen and (max-width: 600px) {
     header {
         justify-content: space-between;
         gap: 1rem;
