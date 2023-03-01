@@ -7,6 +7,7 @@ header {
     margin: 0 auto;
     padding: 0 0.6rem;
     background: goldenrod;
+    min-height: 65px;
 }
 
 .navbar {
@@ -25,7 +26,6 @@ header {
     text-decoration: underline;
 }
 
-
 header h3 {
     color: var(--color-white);
 }
@@ -40,16 +40,15 @@ header h3 {
     visibility: hidden;
 }
 
+/* ========== MEDIA QUERY SMALL DEVICE(HAMBUGER MENU) ========== */
 @media screen and (max-width: 600px) {
     header {
         justify-content: space-between;
-        gap: 1rem;
-        min-height: 65px;
         margin: 0 auto;
 
     }
     header > h3 {
-        font-size: 1rem;
+        font-size: 1.2rem;
     }
     .navbar {
       font-size: 0.9rem;
@@ -65,9 +64,9 @@ header h3 {
       gap: 1.5rem;
       transition: 1s;
       transform: translateY(-100vh);
-      background: orange;
+      background: goldenrod;
       z-index: 1;
-      font-size: 1.5rem;
+      font-size: 1.2rem;
     }
     .active__menu {
         transform: none;
@@ -79,7 +78,7 @@ header h3 {
     }
     .nav-close-btn {
         position: absolute;
-        top: 2rem;
-        right: 2rem;
+        top: 1.3rem;
+        right: 1rem;
     }
 }
