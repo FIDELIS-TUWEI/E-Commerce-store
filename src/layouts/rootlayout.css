@@ -15,10 +15,6 @@ header {
     margin: 0 auto;
     gap: 1rem;
     font-weight: 400;
-    position: fixed;
-    right: -100%;
-    top: 50px;
-    height: 70%;
 }
 
 .active {
@@ -34,19 +30,14 @@ header h3 {
     color: var(--color-white);
 }
 
-.hambuger__menu {
-    display: block;
+.nav-btn {
+    padding: 5px;
     cursor: pointer;
-}
-
-.bar {
-    display: block;
-    width: 30px;
-    height: 3px;
-    margin: 5px auto;
-    -webkit-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-    background-color: var(--color-white);
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    visibility: hidden;
 }
 
 @media screen and (max-width: 600px) {
@@ -63,5 +54,32 @@ header h3 {
     .navbar {
       font-size: 0.9rem;
       gap: 1rem;
+      position: fixed;
+      flex-direction: column;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      transition: 1s;
+      transform: translateY(-100vh);
+      background: orange;
+      z-index: 1;
+      font-size: 1.5rem;
+    }
+    .active__menu {
+        transform: none;
+    }
+    .nav-btn {
+        visibility: visible;
+        opacity: 1;
+        font-size: 1.5rem;
+    }
+    .nav-close-btn {
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
     }
 }
