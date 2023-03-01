@@ -114,6 +114,8 @@ footer {
     padding: 0 0.2rem;
     display: flex;
     align-items: center;
+    color: var(--color-bg);
+    caret-color: #4a4a6e;
 }
 
 .signup__form button {

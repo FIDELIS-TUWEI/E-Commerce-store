@@ -1,5 +1,3 @@
-import { getFirestore } from 'firebase/firestore';
-import { collection, doc } from 'firebase/firestore'
 import { useState, useEffect } from 'react';
 import { Box, Card, CircularProgress, Container, Grid, IconButton, Link, Stack, Typography, useTheme } from '@mui/material';
 import { PlaylistAddCircleOutlined } from '@mui/icons-material';
@@ -18,12 +16,6 @@ const Products = () => {
         setLastVisibleProduct(result["lastVisible"])
         setIsLoadingProducts(false)
     }
-
-    // Init services
-    const db = getFirestore()
-
-    // Collect ref
-    const colRef = collection(db, "jumia_products");
 
     // realtime data collection with useEffect
     useEffect(() => {
