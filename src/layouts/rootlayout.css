@@ -51,22 +51,22 @@ header h3 {
         font-size: 1.2rem;
     }
     .navbar {
-      font-size: 0.9rem;
-      gap: 1rem;
-      position: fixed;
-      flex-direction: column;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      align-items: center;
-      justify-content: center;
-      gap: 1.5rem;
-      transition: 1s;
-      transform: translateY(-100vh);
-      background: goldenrod;
-      z-index: 1;
-      font-size: 1.2rem;
+        font-size: 0.9rem;
+        gap: 1rem;
+        position: fixed;
+        flex-direction: column;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+        transition: 1s;
+        transform: translateY(-100vh);
+        background: goldenrod;
+        z-index: 1;
+        font-size: 1.2rem;
     }
     .active__menu {
         transform: none;
