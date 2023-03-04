@@ -1,13 +1,17 @@
 import { useState, useEffect } from 'react';
 import { Box, Card, CircularProgress, Container, Grid, IconButton, Link, Stack, Typography, useTheme } from '@mui/material';
 import { PlaylistAddCircleOutlined } from '@mui/icons-material';
-import { getProducts } from '../Firebase';
+import { auth, getProducts } from '../Firebase';
+import { useNavigate } from 'react-router-dom';
 
 const Products = () => {
     // useState
     const [products, setProducts] = useState([])
     const [isLoadingProducts, setIsLoadingProducts] = useState(false)
     const [lastVisibleProduct, setLastVisibleProduct] = useState(null)
+
+    //useNavigate
+    const navigate = useNavigate()
 
     const fetchProducts = async () => {
         setIsLoadingProducts(true)
@@ -17,9 +21,18 @@ const Products = () => {
         setIsLoadingProducts(false)
     }
 
-    // realtime data collection with useEffect
+    // realtime data collection with useEffect & authtoken check
     useEffect(() => {
-        fetchProducts()
+        fetchProducts();
+        // authtoken check
+        let authToken = sessionStorage.getItem('Auth Token')
+        if (authToken) {
+            navigate('/products')
+        }
+        // failed authtoken check
+        if (!authToken) {
+            navigate('login')
+        }
     }, []);
 
     const theme = useTheme()
