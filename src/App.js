@@ -11,6 +11,8 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword
 } from 'firebase/auth'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
   // useState
@@ -30,6 +32,11 @@ const App = () => {
           navigate('/products')
           //sessionstorage
           sessionStorage.setItem('Auth Token', response._tokenResponse.refreshToken)
+        }).catch((error) => {
+          // condition for email-already-registered
+          if (error.code === 'auth/email-already-in-use') {
+            toast.error('Email already in use')
+          }
         })
     }
 
@@ -40,6 +47,15 @@ const App = () => {
           navigate('/products')
           //sessionstorage
           sessionStorage.setItem('Auth Token', response._tokenResponse.refreshToken)
+        }).catch((error) => {
+          // condition for wrong-password
+          if (error.code === 'auth/wrong-password') {
+            toast.error('Please check the Password')
+          }
+          // condition for user not found
+          if (error.code === 'auth/user-not-found') {
+            toast.error('Please check the Email')
+          }
         })
     }
   }
@@ -56,6 +72,7 @@ const App = () => {
   return ( 
       <div className="App">
         <ThemeProvider theme={theme}>
+          <ToastContainer />
           <Routes>
             <Route 
               path='/login' 
