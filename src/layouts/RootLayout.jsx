@@ -21,11 +21,7 @@ const RootLayout = () => {
                     <h3>Fleekyffect</h3>
 
                     <nav className='navbar' ref={navRef}>                     
-                        <NavLink to='/' onClick={(e) => setActive} className={active ? "active" : ""}>Home</NavLink>
-                        <NavLink to='login' onClick={(e) => setActive} className={active ? "active" : ""}>Login</NavLink>
-                        <NavLink to='signup' onClick={(e) => setActive} className={active ? "active" : ""}>SignUp</NavLink>
                         <NavLink to='products' onClick={(e) => setActive} className={active ? "active" : ""}>Products</NavLink>
-                        <NavLink to='account' onClick={(e) => setActive} className={active ? "active" : ""}>Account</NavLink>
                         <button className='nav-btn nav-close-btn' onClick={showNavBar}><FaTimes /></button>
                     </nav>
                     <button className='nav-btn' onClick={showNavBar}><FaBars /></button>
