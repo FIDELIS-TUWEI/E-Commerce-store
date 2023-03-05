@@ -37,9 +37,16 @@ const Products = () => {
 
     const theme = useTheme()
 
+    // handlelogout
+    const handleLogout = () => {
+        sessionStorage.removeItem('Auth Token')
+        navigate('/login')
+    }
+
     return (
         <>
             <Container>
+                <button onClick={handleLogout} className="logout__btn">Logout</button>
                 <Grid mt={4} container columnSpacing={1} rowSpacing={3}>
                     {
                         products.map(product => {
