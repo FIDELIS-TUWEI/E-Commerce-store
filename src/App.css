@@ -62,14 +62,6 @@ p {
     font-weight: 600;
 }
 
-.error-page {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin: 3rem;
-}
-
 /* ========== PRODUCTS STYLES ========== */
 #catalog {
     display: grid;
@@ -95,3 +87,10 @@ p {
     justify-content: center;
 }
 
+.logout__btn {
+    color: orange;
+    border: none;
+    border-radius: 0.2rem;
+    padding: 0.6rem;
+    margin-top: 1rem;
+}
