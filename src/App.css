@@ -34,6 +34,7 @@ html {
 body {
     font-family: 'Labrada', serif;
     line-height: 1.7;
+    height: 100vh;
 }
 
 a {
@@ -60,6 +61,12 @@ h5 {
 
 p {
     font-weight: 600;
+}
+
+.heading__container {
+    margin: 3rem;
+    text-align: center;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 /* ========== PRODUCTS STYLES ========== */

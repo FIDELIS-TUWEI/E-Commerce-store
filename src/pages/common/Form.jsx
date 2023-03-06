@@ -8,12 +8,11 @@ const Form = ({title, setEmail, setPassword, handleAction}) => {
         <>
             <div className="heading__container">
                 <h3>{title} Form</h3>
-            </div>
 
             <Box
                 component="form"
                 sx={{
-                    '& > :not(style)': {m: 1, width: '25ch'},
+                    '& > :not(style)': {m: 1, width: '25ch'},                    
                 }}
                 noValidate
                 autoComplete="off"
@@ -36,6 +35,7 @@ const Form = ({title, setEmail, setPassword, handleAction}) => {
                 />
                 <Button title={title} handleAction={handleAction} />
             </Box>
+            </div>
         </>
      );
 }
