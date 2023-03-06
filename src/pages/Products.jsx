@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
-import { Box, Card, CircularProgress, Container, Grid, IconButton, Link, Stack, Typography, useTheme } from '@mui/material';
+import { Box, Button, Card, CircularProgress, Container, Grid, IconButton, Link, Stack, Typography, useTheme } from '@mui/material';
 import { PlaylistAddCircleOutlined } from '@mui/icons-material';
 import { auth, getProducts } from '../Firebase';
 import { useNavigate } from 'react-router-dom';
+
 
 const Products = () => {
     // useState
@@ -136,10 +137,9 @@ const Products = () => {
                             alignItems="center" 
                             sx={{
                                 cursor: "pointer",
-                                backgroundColor: "#f1f1f1"
                             }} 
                             onClick={fetchProducts}>
-                            <Typography>Load More</Typography>
+                            <Button variant="contained">Load More</Button>
                         </Stack>: <></>
                 }
             </Container>
