@@ -25,12 +25,15 @@ const Form = ({title, setEmail, setPassword, handleAction}) => {
                     id="email"
                     label="Enter your Email"
                     variant="outlined"
+                    required
                     onChange={(e) => setEmail(e.target.value)}
                 />
                 <TextField
                     id="password"
                     label="Enter your Password"
                     variant="outlined"
+                    type={"password"}
+                    required
                     onChange={(e) => setPassword(e.target.value)}
                 />
                 <Button title={title} handleAction={handleAction} />
