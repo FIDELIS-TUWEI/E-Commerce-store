@@ -17,6 +17,10 @@ const Form = ({title, setEmail, setPassword, handleAction}) => {
                 }}
                 noValidate
                 autoComplete="off"
+                display="flex"
+                flexDirection="column"
+                justifyContent="center"
+                alignItems="center"
             >
                 <TextField 
                     id="email"
@@ -30,8 +34,8 @@ const Form = ({title, setEmail, setPassword, handleAction}) => {
                     variant="outlined"
                     onChange={(e) => setPassword(e.target.value)}
                 />
+                <Button title={title} handleAction={handleAction} />
             </Box>
-            <Button title={title} handleAction={handleAction} />
         </>
      );
 }
