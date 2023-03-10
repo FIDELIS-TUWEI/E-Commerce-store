@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useNavigate, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom';
 import './App.css'
 import Form from './pages/common/Form';
 import Products from './pages/Products'
@@ -13,14 +13,16 @@ import {
 } from 'firebase/auth'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import RootLayout from './layout/RootLayout';
 
 const App = () => {
+
+  
   // useState
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
   //useNavigate
-  const navigate = useNavigate()
 
   //handleAction fucntion
   const handleAction =(id) => {
@@ -29,7 +31,6 @@ const App = () => {
     if (id === 2) {
       createUserWithEmailAndPassword(authentication, email, password)
         .then((response) => {
-          navigate('/products')
           //sessionstorage
           sessionStorage.setItem('Auth Token', response._tokenResponse.refreshToken)
         }).catch((error) => {
@@ -44,7 +45,6 @@ const App = () => {
     if (id === 1) {
       signInWithEmailAndPassword(authentication, email, password)
         .then((response) => {
-          navigate('/products')
           //sessionstorage
           sessionStorage.setItem('Auth Token', response._tokenResponse.refreshToken)
         }).catch((error) => {
@@ -65,17 +65,15 @@ const App = () => {
     let authtoken = sessionStorage.getItem('Auth Token')
     // authtoken check
     if (authtoken) {
-      navigate('/products')
     }
   }, []);
 
-  return ( 
-      <div className="App">
-        <ThemeProvider theme={theme}>
-          <ToastContainer />
-          <Routes>
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route path='/' element={<RootLayout />}>
             <Route 
-              path='/login' 
+              path='/login'
+              index 
               element={
                 <Form 
                   title="Login"
@@ -100,7 +98,15 @@ const App = () => {
                 <Products 
               />} 
             />
-          </Routes>
+          </Route>
+    )
+  )
+
+  return ( 
+      <div className="App">
+        <ThemeProvider theme={theme}>
+          <ToastContainer />
+            <RouterProvider router={router} />
         </ThemeProvider>
       </div>
    );
