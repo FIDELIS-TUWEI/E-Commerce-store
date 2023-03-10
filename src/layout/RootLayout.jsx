@@ -4,6 +4,7 @@ const RootLayout = () => {
     return ( 
         <div>
             <header>
+                <h3>FLEEKYFFECT</h3>
                 <nav>
                     <NavLink to="/login">Login</NavLink>
                     <NavLink to="/register">Register</NavLink>

@@ -12,7 +12,7 @@ import {
 } from 'firebase/auth'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import RootLayout from './pages/common/layout/RootLayout';
+import RootLayout from './layout/RootLayout';
 
 const App = () => {
   // useState
