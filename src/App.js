@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, useNavigate, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom';
+import { Routes, Route, useNavigate, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom';
 import './App.css'
 import Form from './pages/common/Form';
 import Products from './pages/Products'
@@ -23,6 +23,7 @@ const App = () => {
   const [password, setPassword] = useState("")
 
   //useNavigate
+
 
   //handleAction fucntion
   const handleAction =(id) => {
@@ -68,6 +69,7 @@ const App = () => {
     }
   }, []);
 
+  // router
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path='/' element={<RootLayout />}>
