@@ -60,6 +60,15 @@ const App = () => {
     }
   }
 
+  // Auth token check with useEffect
+  useEffect(() => {
+    let authToken = sessionStorage.getItem('Auth Token');
+
+    if(authToken) {
+      navigate('/login')
+    }
+  }, [])
+
   return ( 
       <div className="App">
         <ThemeProvider theme={theme}>
