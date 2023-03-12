@@ -1,4 +1,4 @@
-import { Route, useNavigate, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import './App.css'
 import Form from './pages/common/Form';
 import Products from './pages/Products'
@@ -67,46 +67,41 @@ const App = () => {
     }
   }, []);
 
-  // router
-  const router = createBrowserRouter(
-    createRoutesFromElements(
-      <Route path='/' element={<RootLayout />}>
-            <Route 
-              path='/login'
-              index 
-              element={
-                <Form 
-                  title="Login"
-                  setEmail={setEmail}
-                  setPassword={setPassword}
-                  handleAction={() => handleAction(1)}
-              />} 
-            />
-            <Route 
-              path='/register' 
-              element={
-                <Form 
-                  title="Register"
-                  setEmail={setEmail}
-                  setPassword={setPassword}
-                  handleAction={() => handleAction(2)}
-              />} 
-            />
-            <Route 
-              path='/products' 
-              element={
-                <Products 
-              />} 
-            />
-          </Route>
-    )
-  )
-
   return ( 
       <div className="App">
         <ThemeProvider theme={theme}>
           <ToastContainer />
-            <RouterProvider router={router} />
+          <Routes>
+            <Route path='/' element={<RootLayout />}>
+              <Route 
+                path='/login'
+                index 
+                element={
+                  <Form 
+                    title="Login"
+                    setEmail={setEmail}
+                    setPassword={setPassword}
+                    handleAction={() => handleAction(1)}
+                />} 
+              />
+              <Route 
+                path='/register' 
+                element={
+                  <Form 
+                    title="Register"
+                    setEmail={setEmail}
+                    setPassword={setPassword}
+                    handleAction={() => handleAction(2)}
+                />} 
+              />
+              <Route 
+                path='/products' 
+                element={
+                  <Products 
+                />} 
+              />
+            </Route>
+          </Routes>
         </ThemeProvider>
       </div>
    );
