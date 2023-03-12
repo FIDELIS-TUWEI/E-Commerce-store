@@ -1,3 +1,4 @@
+import Grid from '@mui/material/Grid';
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 
@@ -5,8 +6,7 @@ import Button from "./Button";
 
 const Form = ({title, setEmail, setPassword, handleAction}) => {
     return ( 
-        <>
-            <div className="heading__container">
+        <Grid container component="main" sx={{ height: '100vh' }}>
                 <h3>{title} Form</h3>
 
             <Box
@@ -38,8 +38,7 @@ const Form = ({title, setEmail, setPassword, handleAction}) => {
                 />
                 <Button title={title} handleAction={handleAction} />
             </Box>
-            </div>
-        </>
+        </Grid >
      );
 }
  
