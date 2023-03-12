@@ -32,7 +32,7 @@ const Products = () => {
         }
         // failed authtoken check
         if (!authToken) {
-            navigate('login')
+            navigate('/login')
         }
     }, []);
 
