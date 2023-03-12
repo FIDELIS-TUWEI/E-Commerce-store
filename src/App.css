@@ -63,17 +63,6 @@ p {
     font-weight: 600;
 }
 
-.heading__container {
-    margin: 3rem;
-    text-align: center;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    height: 70vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
 /* ========== PRODUCTS STYLES ========== */
 #catalog {
     display: grid;
