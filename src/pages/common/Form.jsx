@@ -3,13 +3,25 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 
+
 import Button from "./Button";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import Avatar from '@mui/material/Avatar';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { FormControlLabel, Typography } from '@mui/material';
-import { CheckBox } from '@mui/icons-material';
+import CheckBox from '@mui/icons-material/CheckBox';
+import Link from '@mui/material/Link';
+
+// copyright
+const Copyright = (props) => {
+    return (
+        <Typography variant='body2' color='text.secondary' align='center' {...props}>
+            {'Copyright © '}
+            Fleekyffect - {new Date().getFullYear()} 
+        </Typography>
+    )
+}
 
 // ThemeProvider
 const theme = createTheme();
@@ -64,7 +76,6 @@ const Form = ({title, setEmail, setPassword, handleAction}) => {
                             <TextField
                                 margin='normal'
                                 fullWidth
-                                autoFocus 
                                 id="email"
                                 label="Enter your Email"
                                 variant="outlined"
@@ -74,7 +85,6 @@ const Form = ({title, setEmail, setPassword, handleAction}) => {
                             <TextField
                                 margin='normal'
                                 fullWidth
-                                autoFocus
                                 id="password"
                                 label="Enter your Password"
                                 variant="outlined"
@@ -82,13 +92,22 @@ const Form = ({title, setEmail, setPassword, handleAction}) => {
                                 required
                                 onChange={(e) => setPassword(e.target.value)}
                             />
-                            
+
                             <FormControlLabel
                                 control={<CheckBox value='remember' color='primary' />}
                                 label='Remember me'
                             />
 
                             <Button title={title} handleAction={handleAction} />
+
+                            <Grid container>
+                                <Grid item xs>
+                                    <Link>
+                                        Don't have an account? Register
+                                    </Link>
+                                </Grid>
+                            </Grid>
+                            <Copyright sx={{ mt: 5 }} />
                         </Box>
                     </Box>
                 </Grid>
