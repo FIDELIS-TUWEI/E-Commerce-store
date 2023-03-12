@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import './App.css'
 import Form from './pages/common/Form';
 import Products from './pages/Products'
@@ -15,13 +15,12 @@ import 'react-toastify/dist/ReactToastify.css';
 import RootLayout from './layout/RootLayout';
 
 const App = () => {
-
-  
   // useState
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
   //useNavigate
+  const navigate = useNavigate()
 
   //handleAction fucntion
   const handleAction =(id) => {
@@ -30,6 +29,7 @@ const App = () => {
     if (id === 2) {
       createUserWithEmailAndPassword(authentication, email, password)
         .then((response) => {
+          navigate("/products")
           //sessionstorage
           sessionStorage.setItem('Auth Token', response._tokenResponse.refreshToken)
         }).catch((error) => {
@@ -44,6 +44,7 @@ const App = () => {
     if (id === 1) {
       signInWithEmailAndPassword(authentication, email, password)
         .then((response) => {
+          navigate("/products")
           //sessionstorage
           sessionStorage.setItem('Auth Token', response._tokenResponse.refreshToken)
         }).catch((error) => {
@@ -59,21 +60,15 @@ const App = () => {
     }
   }
 
-  // useEffect for authtoken check
-  useEffect(() => {
-    let authtoken = sessionStorage.getItem('Auth Token')
-    // authtoken check
-    if (authtoken) {
-    }
-  }, []);
-
   return ( 
       <div className="App">
         <ThemeProvider theme={theme}>
           <ToastContainer />
           <Routes>
+            <Route path='/' element={<RootLayout />} />
             <Route 
-              path='/login' 
+              path='/login'
+              index 
               element={
                 <Form 
                   title="Login"
