@@ -31,7 +31,7 @@ const Form = ({title, setEmail, setPassword, handleAction}) => {
 
     return ( 
         <ThemeProvider theme={theme}>
-            <Grid container component="main" sx={{ height: '100vh' }}>
+            <Grid container component="main" sx={{ height: '90vh', m: 3 }}>
                 <CssBaseline />
 
                 <Grid
@@ -64,7 +64,7 @@ const Form = ({title, setEmail, setPassword, handleAction}) => {
                         </Avatar>
 
                         <Typography>
-                            {title} Form
+                            {title} Page
                         </Typography>
 
                         <Box
@@ -93,20 +93,8 @@ const Form = ({title, setEmail, setPassword, handleAction}) => {
                                 onChange={(e) => setPassword(e.target.value)}
                             />
 
-                            <FormControlLabel
-                                control={<CheckBox value='remember' color='primary' />}
-                                label='Remember me'
-                            />
-
                             <Button title={title} handleAction={handleAction} />
 
-                            <Grid container>
-                                <Grid item xs>
-                                    <Link>
-                                        Don't have an account? Register
-                                    </Link>
-                                </Grid>
-                            </Grid>
                             <Copyright sx={{ mt: 5 }} />
                         </Box>
                     </Box>
