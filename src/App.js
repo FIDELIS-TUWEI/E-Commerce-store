@@ -79,7 +79,8 @@ const App = () => {
               element={<RootLayout />}
             />
             <Route 
-              path='/login' 
+              path='/login'
+              index 
               element={
                 <Form 
                   title="Login"
