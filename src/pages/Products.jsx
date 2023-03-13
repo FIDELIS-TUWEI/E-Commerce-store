@@ -1,5 +1,10 @@
 import { useState, useEffect } from 'react';
-import { Box, Button, Card, CircularProgress, Container, Grid, IconButton, Link, Stack, Typography, useTheme } from '@mui/material';
+import { 
+    Box, Button, Card, 
+    CircularProgress, Container, 
+    Grid, IconButton, Link, Stack, 
+    Typography, useTheme 
+} from '@mui/material';
 import { PlaylistAddCircleOutlined } from '@mui/icons-material';
 import { auth, getProducts } from '../Firebase';
 import { useNavigate } from 'react-router-dom';
