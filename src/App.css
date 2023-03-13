@@ -9,17 +9,6 @@
     outline: none;
 }
 
-:root {
-    --color-bg: #4a4a6e;
-    --color-primary: #4db5ff;
-    --colo-primary-variant: rgba(77, 181, 255, 0.4);
-    --color-light: rgba(255, 255, 255, 0.6);
-    --color-white: #fff;
-
-    --transition: all 400ms ease;
-
-}
-
 ::-webkit-scrollbar {
     display: none;
 }
@@ -66,7 +55,7 @@ body {
     padding: 0.6rem;
     margin-top: 1rem;
     cursor: pointer;
-    transition: var(--transition);
+    transition: all 400ms ease;
 }
 
 .logout__btn:hover {
