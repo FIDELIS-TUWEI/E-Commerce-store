@@ -45,7 +45,6 @@ const Products = () => {
     }
 
     return (
-        <>
             <Container>
                 <button onClick={handleLogout} className="logout__btn">Logout</button>
                 <Grid mt={4} container columnSpacing={1} rowSpacing={3}>
@@ -143,7 +142,6 @@ const Products = () => {
                         </Stack>: <></>
                 }
             </Container>
-        </>
     );
 }
 
