@@ -45,24 +45,6 @@ img {
     max-width: 100%;
 }
 
-/* ========== GENERAL STYLES ========== */
-small {
-    font-style: italic;
-    font-weight: 500;
-    font-size: 1rem;
-    margin: 0.8rem;
-    text-decoration: underline;
-    color: var(--color-primary);
-}
-
-h5 {
-    font-weight: 300;
-}
-
-p {
-    font-weight: 600;
-}
-
 /* ========== PRODUCTS STYLES ========== */
 #catalog {
     display: grid;
