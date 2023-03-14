@@ -9,8 +9,6 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import Avatar from '@mui/material/Avatar';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import { FormControlLabel, Typography } from '@mui/material';
-import CheckBox from '@mui/icons-material/CheckBox';
 import Link from '@mui/material/Link';
 
 // copyright
@@ -94,6 +92,12 @@ const Form = ({title, setEmail, setPassword, handleAction}) => {
                             />
 
                             <Button title={title} handleAction={handleAction} />
+
+                            <Grid container>
+                                <Grid item>
+                                    {<Link to="/register"><Typography>Register</Typography></Link>}
+                                </Grid>
+                            </Grid>
 
                             <Copyright sx={{ mt: 5 }} />
                         </Box>
