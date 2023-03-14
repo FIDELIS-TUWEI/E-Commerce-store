@@ -9,6 +9,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import Avatar from '@mui/material/Avatar';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 
 // copyright
@@ -95,7 +96,7 @@ const Form = ({title, setEmail, setPassword, handleAction}) => {
 
                             <Grid container>
                                 <Grid item>
-                                    {<Link to="/register"><Typography>Register</Typography></Link>}
+                                    Don't have an account? {<Link href="/register">{title}</Link>}
                                 </Grid>
                             </Grid>
 
