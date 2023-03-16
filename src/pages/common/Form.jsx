@@ -96,10 +96,6 @@ const Form = ({title, setEmail, setPassword, handleAction}) => {
 
                             <Grid container>
                                 <Grid item>
-                                    Don't have an account? {<Link href="/register">{title}</Link>}
-                                </Grid>
-
-                                <Grid item>
                                     Go back <Link href='/'>Home</Link>
                                 </Grid>
                             </Grid>
