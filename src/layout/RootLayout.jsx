@@ -1,3 +1,7 @@
+import CssBaseline from "@mui/material/CssBaseline";
+import Grid from "@mui/material/Grid";
+import Container from "@mui/material/Container";
+
 import { NavLink, Outlet } from "react-router-dom";
 
 const RootLayout = () => {
@@ -12,6 +16,8 @@ const RootLayout = () => {
             <main>
                 <Outlet />
             </main>
+
+            <section></section>
         </div>
      );
 }
