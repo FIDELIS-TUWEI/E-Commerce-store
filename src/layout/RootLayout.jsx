@@ -1,10 +1,7 @@
 import CssBaseline from "@mui/material/CssBaseline";
-import Grid from "@mui/material/Grid";
-import Container from "@mui/material/Container";
 
 import { NavLink, Outlet } from "react-router-dom";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { ImageList } from "@mui/material";
 
 const RootLayout = () => {
     const theme = createTheme();
