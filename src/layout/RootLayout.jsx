@@ -1,10 +1,6 @@
-import CssBaseline from "@mui/material/CssBaseline";
-
 import { NavLink, Outlet } from "react-router-dom";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 const RootLayout = () => {
-    const theme = createTheme();
     return ( 
         <div>
             <header>
@@ -16,13 +12,6 @@ const RootLayout = () => {
             <main>
                 <Outlet />
             </main>
-
-            <section>
-                <ThemeProvider theme={theme}>
-                    <CssBaseline />
-
-                </ThemeProvider>
-            </section>
         </div>
      );
 }
