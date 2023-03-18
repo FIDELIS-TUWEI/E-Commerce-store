@@ -28,9 +28,13 @@ const Background = styled(Box)({
 });
 
 // HeroLayout
-const HeroLayout = () => {
+const HeroLayout = (props) => {
+    // sxBackground
+    const { sxBackground, children } = props;
     return ( 
-        <></>
+        <HeroLayoutRoot>
+            <Container></Container>
+        </HeroLayoutRoot>
      );
 }
  
