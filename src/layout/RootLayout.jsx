@@ -1,5 +1,5 @@
 import { NavLink, Outlet } from "react-router-dom";
-import HeroLayout from "./HeroLayout";
+import ProductHero from "./ProductHero";
 
 const RootLayout = () => {
     return ( 
@@ -13,7 +13,7 @@ const RootLayout = () => {
             <main>
                 <Outlet />
             </main>
-            <HeroLayout/>
+            <ProductHero/>
         </div>
      );
 }
