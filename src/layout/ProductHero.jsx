@@ -18,6 +18,14 @@ const ProductHero = () => {
             src={backgroundImage}
             alt=""
         />
+        <Typography
+            color="inherit"
+            align="center"
+            variant='h2'
+            marked='center'
+        >
+            Welcome to Fleekyffect Store!
+        </Typography>
     </HeroLayout> 
     );
 }
