@@ -5,7 +5,14 @@ import HeroLayout from "./HeroLayout";
 const backgroundImage = 'https://images.unsplash.com/photo-1534854638093-bada1813ca19?auto=format&fit=crop&w=1400';
 
 const ProductHero = () => {
-    return ( <HeroLayout>
+    return ( 
+    <HeroLayout
+        sxBackground={{
+            backgroundImage: `url(${backgroundImage})`,
+            backgroundColor: '#7fc7d9',
+            backgroundPosition: 'center',
+        }}
+    >
         <img
             style={{ display: 'none' }}
             src={backgroundImage}
