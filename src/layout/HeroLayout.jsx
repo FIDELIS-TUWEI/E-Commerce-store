@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 import { styled } from "@mui/material/styles";
 import { Container, Box } from "@mui/material";
-import landing from '../assets/landing.jpg'
 
 // HeroLayoutRoot
 const HeroLayoutRoot = styled('section')(({ theme }) => ({
