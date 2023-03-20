@@ -1,8 +1,9 @@
 import Typography from "@mui/material/Typography";
 import HeroLayout from "./HeroLayout";
+import landing from '../assets/landing.jpg'
 
 // background image
-const backgroundImage = 'https://images.unsplash.com/photo-1534854638093-bada1813ca19?auto=format&fit=crop&w=1400';
+const backgroundImage = landing
 
 const ProductHero = () => {
     return ( 

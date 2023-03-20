@@ -43,12 +43,6 @@ const HeroLayout = (props) => {
                     alignItems: 'center',
                 }}
             >
-                <img
-                    src={landing}
-                    alt=""
-                    width="147"
-                    height="80"
-                />
                 {children}
                 <Box
                     sx={{
