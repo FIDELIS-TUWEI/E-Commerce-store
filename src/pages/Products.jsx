@@ -60,7 +60,7 @@ const Products = () => {
                                 <Card>
                                     <Stack>
                                         <Stack sx={{ position: "relative" }}>
-                                            <img src={product.image_url} alt={product.name} />
+                                            <img src={product.image_url} alt={product.name} loading='lazy' />
                                             <IconButton color="primary" size="large" sx={{
                                                 position: "absolute",
                                                 bottom: 0,
