@@ -29,7 +29,9 @@ const ProductHero = () => {
         >
             Welcome to Fleekyffect Store!
         </Typography>
-        <Typography>
+        <Typography 
+            mb={4}
+        >
             Enjoy affordable discounts on Items up to -30% off on products you purchase
         </Typography>
         <Button
