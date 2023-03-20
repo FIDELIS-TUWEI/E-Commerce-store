@@ -33,6 +33,7 @@ const ProductHero = () => {
         </Typography>
         <Button
             variant='contained'
+            href='/Register'
         >
             Register
         </Button>
