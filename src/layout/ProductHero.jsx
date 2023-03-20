@@ -1,4 +1,5 @@
 import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
 import HeroLayout from "./HeroLayout";
 import landing from '../assets/landing.jpg'
 
@@ -30,6 +31,11 @@ const ProductHero = () => {
         <Typography>
             Enjoy affordable discounts on Items up to -30% off on products you purchase
         </Typography>
+        <Button
+            variant='contained'
+        >
+            Register
+        </Button>
     </HeroLayout> 
     );
 }
