@@ -2,6 +2,7 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import HeroLayout from "./HeroLayout";
 import landing from '../assets/landing.jpg'
+import Link from '@mui/material/Link'
 
 // background image
 const backgroundImage = landing
@@ -37,6 +38,9 @@ const ProductHero = () => {
         >
             Register
         </Button>
+        <Typography>
+            Already have an account? <Link href='/login'>Login</Link>
+        </Typography>
     </HeroLayout> 
     );
 }
