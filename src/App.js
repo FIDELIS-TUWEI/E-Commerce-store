@@ -29,6 +29,7 @@ const App = () => {
     if (id === 2) {
       createUserWithEmailAndPassword(authentication, email, password)
         .then((response) => {
+          window.alert("Succesful signup")
           navigate("/products")
           //sessionstorage
           sessionStorage.setItem('Auth Token', response._tokenResponse.refreshToken)
@@ -44,6 +45,7 @@ const App = () => {
     if (id === 1) {
       signInWithEmailAndPassword(authentication, email, password)
         .then((response) => {
+          window.alert("Welcome Back")
           navigate("/products")
           //sessionstorage
           sessionStorage.setItem('Auth Token', response._tokenResponse.refreshToken)
