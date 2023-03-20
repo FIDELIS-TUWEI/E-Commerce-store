@@ -38,7 +38,7 @@ const ProductHero = () => {
         >
             Register
         </Button>
-        <Typography>
+        <Typography mt={4}>
             Already have an account? <Link href='/login'>Login</Link>
         </Typography>
     </HeroLayout> 
