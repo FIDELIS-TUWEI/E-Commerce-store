@@ -30,7 +30,7 @@ const Form = ({title, setEmail, setPassword, handleAction}) => {
 
     return ( 
         <ThemeProvider theme={theme}>
-            <Grid container component="main" sx={{ height: '90vh', m: 3 }}>
+            <Grid container component="main" sx={{ height: '90vh' }}>
                 <CssBaseline />
 
                 <Grid
