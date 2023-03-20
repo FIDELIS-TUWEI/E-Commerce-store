@@ -4,9 +4,6 @@ import ProductHero from "./ProductHero";
 const RootLayout = () => {
     return ( 
         <div>
-            <main>
-                <Outlet />
-            </main>
             <ProductHero/>
         </div>
      );
