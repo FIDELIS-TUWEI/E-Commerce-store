@@ -52,7 +52,7 @@ const Products = () => {
     return (
             <Container>
                 <button onClick={handleLogout} className="logout__btn">Logout</button>
-                <Grid mt={4} container columnSpacing={3} rowSpacing={3}>
+                <Grid mt={4} container columnSpacing={2} rowSpacing={3}>
                     {
                         products.map(product => {
                             const hasDiscount = product.old_price || (product.lower_old_price_limit && product.upper_old_price_limit)
