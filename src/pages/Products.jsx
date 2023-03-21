@@ -60,8 +60,7 @@ const Products = () => {
                                 <Card>
                                     <Stack>
                                         <Stack sx={{ position: "relative" }}>
-                                            <img src={product.image_url} alt={product.name} loading='lazy' />
-                                            
+                                            <img src={product.image_url} alt={product.name} loading='lazy' /> 
                                         </Stack>
 
                                         <Box p={2}>
@@ -75,7 +74,7 @@ const Products = () => {
 
 
                                             <Typography
-                                                variant="body2"
+                                                variant="small"
                                                 mt={1}
                                                 sx={{
                                                     textDecoration: hasDiscount ? "line-through" : "none"
@@ -87,7 +86,7 @@ const Products = () => {
 
 
                                             <Stack direction="row" justifyContent="space-between">
-                                                <Typography variant="h6">Ksh {product.price}</Typography>
+                                                <Typography variant="small">Ksh {product.price}</Typography>
                                                 <Box>
                                                     {
                                                         product.percentage_discount ?
