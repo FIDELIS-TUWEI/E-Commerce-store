@@ -1,11 +1,10 @@
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import HeroLayout from "./HeroLayout";
-import landing from '../assets/landing.jpg'
 import Link from '@mui/material/Link'
 
 // background image
-const backgroundImage = landing
+const backgroundImage = 'https://source.unsplash.com/random'
 
 const ProductHero = () => {
     return ( 
