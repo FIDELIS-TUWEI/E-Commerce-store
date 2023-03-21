@@ -61,15 +61,7 @@ const Products = () => {
                                     <Stack>
                                         <Stack sx={{ position: "relative" }}>
                                             <img src={product.image_url} alt={product.name} loading='lazy' />
-                                            <IconButton color="primary" size="large" sx={{
-                                                position: "absolute",
-                                                bottom: 0,
-                                                right: 0,
-                                                backgroundColor: "#ffffff"
-                                            }}
-                                                aria-label="Add to catalog">
-                                                <PlaylistAddCircleOutlined fontSize="inherit" />
-                                            </IconButton>
+                                            
                                         </Stack>
 
                                         <Box p={2}>
