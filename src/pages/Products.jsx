@@ -111,14 +111,12 @@ const Products = () => {
                                             </Stack>
 
                                             <Stack alignItems="center">
-                                                <Link
+                                                <Button
                                                     href={product.url}
-                                                    color="inherit"
-                                                    underline="none"
                                                     target="blank"
-                                                    rel="noreferrer">
+                                                >
                                                     View In Jumia
-                                                </Link>
+                                                </Button>
                                             </Stack>
                                         </Box>
                                     </Stack>
