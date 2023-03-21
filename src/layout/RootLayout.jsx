@@ -1,4 +1,3 @@
-import { NavLink, Outlet } from "react-router-dom";
 import ProductHero from "./ProductHero";
 
 const RootLayout = () => {
