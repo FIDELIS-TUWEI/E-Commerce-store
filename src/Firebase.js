@@ -2,6 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getAuth } from 'firebase/auth'
 import { collection, getFirestore, query, getDocs, orderBy, limit, startAfter } from "firebase/firestore";
+import { appCheck } from 'firebase/app-check'
 
 const firebaseConfig = {
   apiKey: "AIzaSyCsLoBiTYPq-305XSzfN0DbZpfoC4bHfCc",
