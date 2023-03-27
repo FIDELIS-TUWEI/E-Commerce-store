@@ -14,10 +14,21 @@ const firebaseConfig = {
   measurementId: "G-5DJBGRB05D"
 };
 
+// App-check
+const { initializeApp } = require("firebase/app")
+const { initializeAppCheck, Recaptchav3Provider } = require("firebase/app-check");
+
+// Initialize AppCheck
+const appCheck = initializeAppCheck(app, {
+  provider: new Recaptchav3Provider('6LdRjDIlAAAAAJXz-6sIayJVXIPPlH-nnz4-VGq5'),
+  isTokenAutoRefresh: true
+});
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
-const db = getFirestore()
+const db = getFirestore();
+
 // getAuth
 export const auth = getAuth();
 
