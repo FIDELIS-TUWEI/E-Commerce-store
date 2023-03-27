@@ -12,7 +12,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 import { InputAdornment, IconButton } from '@mui/material';
-import { visibility, visibilityOff } from '@mui/icons-material'
+import { Visibility, VisibilityOff } from '@mui/icons-material'
 import { useState } from 'react';
 
 // copyright
@@ -107,7 +107,7 @@ const Form = ({title, setEmail, setPassword, handleAction}) => {
                                                 onClick={handleClickShowPassword}
                                                 onMouseDown={handleMouseDownPassword}
                                             >
-                                                { showPassword ? <visibility /> : <visibilityOff /> }
+                                                { showPassword ? <Visibility /> : <VisibilityOff /> }
                                             </IconButton>
                                         </InputAdornment>
                                     )
