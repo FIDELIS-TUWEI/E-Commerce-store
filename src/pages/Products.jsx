@@ -51,7 +51,7 @@ const Products = () => {
 
     return (
             <Container>
-                <button onClick={handleLogout} className="logout__btn">Logout</button>
+                <Button onClick={handleLogout} variant='contained'>Logout</Button>
                 <Grid mt={4} container columnSpacing={2} rowSpacing={3}>
                     {
                         products.map(product => {
