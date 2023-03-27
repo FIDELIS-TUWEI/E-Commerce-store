@@ -33,6 +33,10 @@ const Form = ({title, setEmail, setPassword, handleAction}) => {
     // usestate
     const [showPassword, setShowPassword] = useState();
 
+    // function to handle IconButton Event
+    const handleClickShowPassword = () => setShowPassword(!showPassword);
+    const handleMouseDownPassword = () => setShowPassword(!showPassword);
+
     return ( 
         <ThemeProvider theme={theme}>
             <Grid container component="main" sx={{ height: '100vh' }}>
@@ -92,9 +96,22 @@ const Form = ({title, setEmail, setPassword, handleAction}) => {
                                 id="password"
                                 label="Enter your Password"
                                 variant="outlined"
-                                type={"password"}
+                                type={ showPassword ? 'text' : "password" }
                                 required
                                 onChange={(e) => setPassword(e.target.value)}
+                                InputProps={{
+                                    endAdornment: (
+                                        <InputAdornment position='end'>
+                                            <IconButton
+                                                aria-label='toggle password visibility'
+                                                onClick={handleClickShowPassword}
+                                                onMouseDown={handleMouseDownPassword}
+                                            >
+                                                { showPassword ? <visibility /> : <visibilityOff /> }
+                                            </IconButton>
+                                        </InputAdornment>
+                                    )
+                                }}
                             />
 
                             <Button title={title} handleAction={handleAction} />
