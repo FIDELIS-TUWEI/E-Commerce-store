@@ -2,11 +2,10 @@ import { useState, useEffect } from 'react';
 import { 
     Box, Button, Card, 
     CircularProgress, Container, 
-    Grid, IconButton, Link, Stack, 
+    Grid, Stack, 
     Typography, useTheme 
 } from '@mui/material';
-import { PlaylistAddCircleOutlined } from '@mui/icons-material';
-import { auth, getProducts } from '../Firebase';
+import { getProducts } from '../Firebase';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -51,7 +50,7 @@ const Products = () => {
 
     return (
             <Container>
-                <Button onClick={handleLogout} variant='contained'>Logout</Button>
+                <Button onClick={handleLogout} variant='contained' mt={2}>Logout</Button>
                 <Grid mt={4} container columnSpacing={2} rowSpacing={3}>
                     {
                         products.map(product => {
