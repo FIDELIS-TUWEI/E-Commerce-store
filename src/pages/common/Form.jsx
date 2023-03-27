@@ -11,6 +11,9 @@ import Avatar from '@mui/material/Avatar';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
+import { InputAdornment, IconButton } from '@mui/material';
+import { visibility, visibilityOff } from '@mui/icons-material'
+import { useState } from 'react';
 
 // copyright
 const Copyright = (props) => {
@@ -26,7 +29,9 @@ const Copyright = (props) => {
 const theme = createTheme();
 
 const Form = ({title, setEmail, setPassword, handleAction}) => {
-    
+
+    // usestate
+    const [showPassword, setShowPassword] = useState();
 
     return ( 
         <ThemeProvider theme={theme}>
