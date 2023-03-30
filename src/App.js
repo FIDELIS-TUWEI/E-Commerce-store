@@ -2,9 +2,9 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 import './App.css'
 import Form from './pages/common/Form';
 import Products from './pages/Products'
-import { CircularProgress, ThemeProvider } from '@mui/material';
+import { CircularProgress, ThemeProvider, Fade } from '@mui/material';
 import {theme} from './theme';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -18,6 +18,11 @@ const App = () => {
   // useState
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+    const [loading, setLoading] = useState(false);
+
+  // useRef
+  const timerRef = useRef();
+
 
   //useNavigate
   const navigate = useNavigate()
