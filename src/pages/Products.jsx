@@ -53,6 +53,7 @@ const Products = () => {
                         <Button onClick={handleLogout} variant='contained'>Logout</Button>
                     </Grid>
                 </Grid>
+
                 <Grid mt={4} container columnSpacing={2} rowSpacing={3}>
                     {
                         products.map(product => {
