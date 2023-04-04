@@ -3,7 +3,7 @@ import {
     Box, Button, Card, 
     CircularProgress, Container, 
     Grid, Stack, 
-    Typography, useTheme 
+    Typography 
 } from '@mui/material';
 import { getProducts } from '../Firebase';
 import { useNavigate } from 'react-router-dom';
@@ -40,8 +40,6 @@ const Products = () => {
         }
     }, []);
 
-    const theme = useTheme()
-
     // handlelogout
     const handleLogout = () => {
         sessionStorage.removeItem('Auth Token')
@@ -49,8 +47,8 @@ const Products = () => {
     }
 
     return (
-            <Container>
-                <Button onClick={handleLogout} variant='contained' mt={2}>Logout</Button>
+            <Container sx={{ mt: 5 }}>
+                <Button onClick={handleLogout} variant='contained'>Logout</Button>
                 <Grid mt={4} container columnSpacing={2} rowSpacing={3}>
                     {
                         products.map(product => {
