@@ -1,5 +1,4 @@
 import { Routes, Route, useNavigate } from 'react-router-dom';
-import './App.css'
 import Form from './pages/common/Form';
 import Products from './pages/Products'
 import { CircularProgress, ThemeProvider} from '@mui/material';
