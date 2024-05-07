@@ -9,7 +9,7 @@ app.use(middleware.requestLogger);
 app.disable("x-powered-by");
 
 app.get("/", (req, res) => {
-    res.send("Backend Server is running!")
+    res.json({ message: "Backend Server is running on Docker container!" })
 });
 
 app.use(middleware.unKnownEndpoint);
