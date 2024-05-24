@@ -13,8 +13,13 @@ RUN npm install
 # Bundle app source
 COPY . .
 
-# Expose port 5000
-EXPOSE 5000
+# Copy the .env file
+COPY .env ./
+
+# Expose port specified in the env file
+ARG PORT
+ENV PORT=$PORT
+EXPOSE $PORT
 
 # Run the development server
 CMD ["npm", "run", "dev"]
