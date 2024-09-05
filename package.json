@@ -1,0 +1,23 @@
+{
+  "name": "e-commerce-store",
+  "version": "1.0.0",
+  "description": "An online store with a restAPI backend in nodejs and frontend with react",
+  "main": "server.js",
+  "scripts": {
+    "test": "node test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "FIDELIS-TUWEI"
+  },
+  "keywords": [
+    "nodejs",
+    "redis",
+    "mongodb",
+    "express",
+    "jwt",
+    "stripe"
+  ],
+  "author": "Fidelis Tuwei",
+  "license": "MIT"
+}
