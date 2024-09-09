@@ -1,4 +1,5 @@
 const Redis = require("ioredis");
+const config = require("./config");
 
-const client = new Redis("rediss://default:AYEIAAIjcDFkNzllOTEzMWY5YTI0ZmE1OGY5ZWJiZjI4ODc2MjZkMXAxMA@well-quagga-33032.upstash.io:6379");
+const client = new Redis(config.UPSTASH_REDIS_URL);
 await client.set('foo', 'bar');
