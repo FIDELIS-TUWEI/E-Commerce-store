@@ -1,4 +1,5 @@
 const User = require("../model/user.model");
+const { generateTokens, storeRefreshToken, setCookies } = require("../utils/generateTokens");
 
 const signup = async (req, res) => {
     try {
@@ -11,12 +12,21 @@ const signup = async (req, res) => {
 
         const user = await User.create({ name, email, password });
 
+        // authenticate
+        const { accessToken, refreshToken } = generateTokens(user._id);
+        await storeRefreshToken(user._id, refreshToken);
+
+        // cookies
+        setCookies(res, accessToken, refreshToken);
+
         res.status(201).json({
             status: "success",
             message: "User signup successful",
-            data: {
+            user: {
+                _id: user._id,
                 name: user.name,
-                email: user.email
+                email: user.email,
+                role: user.role
             }
         });
 
