@@ -40,6 +40,42 @@ const signup = async (req, res) => {
     }
 }
 
+const login = async (req, res) => {
+    try {
+        const { email, password } = req.body;
+        const user = await User.findOne({ email });
+
+        if (!user) {
+            return res.status(401).json({ status: "error", message: "Invalid email or password" });
+        };   
+        
+        const isPasswordValid = await user.comparePassword(password)
+
+        if (isPasswordValid) {
+            const { accessToken, refreshToken } = generateTokens(user._id);
+
+            await storeRefreshToken(user._id, refreshToken);
+            setCookies(res, accessToken, refreshToken);
+
+            res.status(200).json({
+                status: "success",
+                message: "Logged in successfully",
+                user: {
+                    _id: user._id,
+                    name: user.name,
+                    email: user.email,
+                    role: user.role
+                }
+            });
+        } else {
+            res.status(401).json({ status: "error", message: "Invalid email or password" });
+        }
+    } catch (error) {
+        logger.error("Error occured on login controller:", error);
+        res.status(500).json({ status: "error", message: error.message || "Internal Server Error" })
+    }
+}
+
 const logout = async (req, res) => {
     try {
         const refreshToken = req.cookies.refreshToken;
@@ -60,5 +96,5 @@ const logout = async (req, res) => {
 };
 
 module.exports = {
-    signup, logout
+    signup, login, logout
 };
