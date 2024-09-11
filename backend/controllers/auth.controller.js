@@ -95,6 +95,40 @@ const logout = async (req, res) => {
     }
 };
 
+const refreshToken = async (req, res) => {
+    try {
+        const refreshToken = req.cookies.refreshToken;
+
+        if (!refreshToken) {
+            res.status(401).json({ status: "error", message: "No refresh token provided" });
+        };
+
+        const decoded = jwt.verify(refreshToken, config.REFRESH_TOKEN_SECRET);
+        const storedToken = await redis.get(`refresh_token: ${decoded.userId}`);
+
+        if (storedToken !== refreshToken) {
+            return res.status(401).json({ status: "error", message: "Invalid refresh token" })
+        };
+
+        const accessToken = jwt.sign({ userId: decoded.userId }, config.ACCESS_TOKEN_SECRET, { expiresIn: "15m" });
+
+        res.cookie("accessToken", accessToken, {
+            httpOnly: true,
+            secure: config.NODE_ENV === "production",
+            sameSite: "strict",
+            maxAge: 15 * 60 * 1000
+        });
+
+        res.status(200).json({
+            status: "success",
+            message: "Token refreshed successfully",
+        })
+    } catch (error) {
+        logger.error("Error occured on refreshToken controller:", error);
+        res.stayus(500).json({ status: "error", message: error.message || "Internal Server Error" })
+    }
+};
+
 module.exports = {
-    signup, login, logout
+    signup, login, logout, refreshToken
 };
