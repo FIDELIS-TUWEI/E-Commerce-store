@@ -2,8 +2,10 @@ const express = require("express");
 const router = express.Router();
 
 const authRoutes = require("./auth.routes");
+const productRoutes = require("./product.routes");
 
 router.use("/auth", authRoutes);
+router.use("/products", productRoutes);
 
 router.get("/favicon.ico", (req, res) => res.status(204)); // Respond with no content (status 204)
 
