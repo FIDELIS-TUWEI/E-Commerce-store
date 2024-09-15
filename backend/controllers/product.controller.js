@@ -91,4 +91,28 @@ const deleteProduct = async (req, res) => {
     }
 };
 
-module.exports = { getAllProducts, getFeaturedProducts, createProduct, deleteProduct };
+const getRecommendedProducts = async (req, res) => {
+    try {
+        const products = await Product.aggregate([
+            {
+                $sample: { size: 3 },
+            },
+            {
+                $project: {
+                    _id: 1,
+                    name: 1,
+                    description: 1,
+                    price: 1,
+                    image: 1
+                }
+            }
+        ]);
+
+        res.json(products);
+    } catch (error) {
+        logger.error("Error occurred on deleteProduct controller:", error);
+        res.status(500).json({ status: "error", message: error.message || "Internal Server Error" });
+    }
+}
+
+module.exports = { getAllProducts, getFeaturedProducts, createProduct, deleteProduct, getRecommendedProducts };
