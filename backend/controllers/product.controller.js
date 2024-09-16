@@ -115,4 +115,48 @@ const getRecommendedProducts = async (req, res) => {
     }
 }
 
-module.exports = { getAllProducts, getFeaturedProducts, createProduct, deleteProduct, getRecommendedProducts };
+const getProductsByCategory = async (req, res) => {
+    const { category } = req.params;
+    try {
+        const products = await Product.find({ category });
+
+        res.json(products);
+    } catch (error) {
+        logger.error("Error occurred on getProductsByCategory controller:", error);
+        res.status(500).json({ status: "error", message: error.message || "Internal Server Error" });
+    }
+};
+
+const toggleFeaturedProduct = async (req, res) => {
+    try {
+        const product = await Product.findById(req.params.id);
+
+        if (product) {
+            product.isFeatured = !product.isFeatured;
+            const updateProduct = await product.save();
+
+            // update redis cache
+            await updateFeaturedProductsCache();
+            res.json(updateProduct);
+        } else {
+            res.status(404).json({ status: "error", message: "Product not found" });
+        };
+
+    } catch (error) {
+        logger.error("Error occurred on toggleFeaturedProduct controller:", error);
+        res.status(500).json({ status: "error", message: error.message || "Internal Server Error" });
+    }
+};
+
+async function updateFeaturedProductsCache() {
+    try {
+        // .lean()  method is going to return a plain javascript object instead of a mongodb document
+        const featuredProducts = await Product.find({ isFeatured: true }).lean();
+        await redis.set("featured_products", JSON.stringify(featuredProducts));
+    } catch (error) {
+        logger.error("Error occurred on updateFeaturedProductsCache function:", error);
+        res.status(500).json({ status: "error", message: error.message || "Internal Server Error" });
+    }
+}
+
+module.exports = { getAllProducts, getFeaturedProducts, createProduct, deleteProduct, getRecommendedProducts, getProductsByCategory, toggleFeaturedProduct };
