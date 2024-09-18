@@ -5,11 +5,13 @@ const authRoutes = require("./auth.routes");
 const productRoutes = require("./product.routes");
 const cartRoutes = require("./cart.routes");
 const couponRoutes = require("./coupon.routes");
+const paymentRoutes = require("./payment.routes");
 
 router.use("/auth", authRoutes);
 router.use("/products", productRoutes);
 router.use("/cart", cartRoutes);
 router.use("/coupons", couponRoutes);
+router.use("/payments", paymentRoutes);
 
 router.get("/favicon.ico", (req, res) => res.status(204)); // Respond with no content (status 204)
 
