@@ -129,6 +129,15 @@ const refreshToken = async (req, res) => {
     }
 };
 
+const getProfile = async (req, res) => {
+    try {
+        res.json(req.user);
+    } catch (error) {
+        logger.error("Error occured on getProfile controller:", error);
+        res.stayus(500).json({ status: "error", message: error.message || "Internal Server Error" })
+    }
+}
+
 module.exports = {
-    signup, login, logout, refreshToken
+    signup, login, logout, refreshToken, getProfile
 };
