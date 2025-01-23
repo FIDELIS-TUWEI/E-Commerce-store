@@ -30,7 +30,7 @@
     "express": "^4.21.2",
     "ioredis": "^5.4.1",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.8.3",
+    "mongoose": "^8.9.5",
     "stripe": "^16.9.0"
   },
   "devDependencies": {
